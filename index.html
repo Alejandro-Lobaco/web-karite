@@ -86,7 +86,7 @@ p{margin:0}
 .eyebrow{font:600 .74rem/1.3 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .script{font-family:var(--script);font-weight:400;color:var(--gold);font-size:1.45em;line-height:.8}
 .lead{font-size:1.08rem;color:var(--ink-soft);max-width:58ch}
-section{padding-block:clamp(48px,7vw,80px)}
+section{padding-block:clamp(48px,7vw,80px);scroll-margin-top:72px}
 .sec-head{display:grid;gap:10px;margin-bottom:28px;max-width:640px}
 
 .btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font:600 .98rem/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s}
@@ -149,6 +149,8 @@ header.top .btn{margin-left:auto}
 .result .note{font-size:.8rem;color:var(--ink-soft)}
 .result .btn{justify-self:start}
 .result .eyebrow{color:var(--gold);opacity:1}
+.quiz-card > *{min-width:0}
+.result .btn{white-space:normal;text-align:center;line-height:1.25}
 @media (max-width:860px){.quiz-card{grid-template-columns:1fr}}
 @media (max-width:420px){.opts{grid-template-columns:1fr}}
 
@@ -204,6 +206,56 @@ table.hours td{padding:4px 18px 4px 0;color:var(--ink-soft)}
 
 footer.site{padding-block:28px 110px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-soft)}
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+/* ===== animaciones ===== */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes unveil{from{clip-path:inset(100% 0 0 0 round 200px 200px 24px 24px)}to{clip-path:inset(0 0 0 0 round 200px 200px 24px 24px)}}
+@keyframes zoomout{from{transform:scale(1.15)}to{transform:scale(1)}}
+@keyframes popin{from{opacity:0;transform:scale(.6) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes slidein{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes slideout{to{opacity:0;transform:translateX(-28px)}}
+@keyframes chip{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes check{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
+
+.hero .wrap > div:first-child > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap > div:first-child > :nth-child(2){animation-delay:.08s}
+.hero .wrap > div:first-child > :nth-child(3){animation-delay:.18s}
+.hero .wrap > div:first-child > :nth-child(4){animation-delay:.28s}
+.hero .wrap > div:first-child > :nth-child(5){animation-delay:.36s}
+.hero-photo .arch{animation:unveil 1.1s .15s cubic-bezier(.65,0,.35,1) both}
+.hero-photo .arch img{animation:zoomout 1.6s .15s cubic-bezier(.2,.7,.2,1) both;will-change:transform}
+.hero-photo .badge{animation:popin .7s .9s cubic-bezier(.3,1.5,.5,1) both, float 6s 1.8s ease-in-out infinite}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.in .gift svg{animation:wiggle .7s .6s ease-in-out}
+.treat .t-card.reveal, .reviews .review.reveal, .checks li.reveal{transition-delay:calc(var(--i,0) * 110ms)}
+.t-card.reveal.in{transition:opacity .8s ease, transform .3s ease, border-color .15s}
+.t-card.reveal.in:hover{transform:translateY(-3px);transition-delay:0s}
+
+.progress i{position:relative;overflow:hidden;background:color-mix(in srgb,var(--green-ink) 25%,transparent)}
+.progress i::after{content:"";position:absolute;inset:0;background:var(--green-ink);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.progress i.on{background:color-mix(in srgb,var(--green-ink) 25%,transparent)}
+.progress i.on::after{transform:scaleX(1)}
+.stage{animation:slidein .45s cubic-bezier(.2,.7,.2,1) both}
+.stage.out{animation:slideout .2s ease-in both}
+.opts button{animation:chip .4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 60ms + .1s);transition:background .15s, color .15s, transform .15s}
+.opts button:active{transform:scale(.97)}
+.opts button.picked{background:var(--green-ink);color:var(--green);border-color:var(--green-ink);transform:scale(1.03)}
+.result{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.result li{animation:check .4s both;animation-delay:calc(var(--i) * 120ms + .3s)}
+.result .btn{animation:rise .5s .7s backwards, pulse 1.6s 1.3s 2}
+
+.hero-photo .arch img.parallax{animation:none}
+.sticky-cta.show .btn{animation:pulse 1.6s .4s 2}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none}
+  .hero-photo .arch, .hero-photo .arch img, .hero-photo .badge{animation:none}
+}
 
 /* sticky mobile cta */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;transform:translateY(110%);transition:transform .25s}
@@ -422,37 +474,82 @@ const TRAT = {
 };
 const TIPO = {normal:"piel normal o mixta", seca:"piel seca", grasa:"piel grasa", sensible:"piel sensible"};
 const box = document.getElementById("quiz");
-let paso = 0, resp = {};
-const barra = n => `<div class="progress">${PREGUNTAS.map((_,i) => `<i class="${i < n ? "on" : ""}"></i>`).join("")}</div>`;
-function render(){
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let paso = 0, resp = {}, ocupado = false;
+box.innerHTML = `<div class="progress">${PREGUNTAS.map(() => "<i></i>").join("")}</div><div class="stage"></div>`;
+const segs = box.querySelectorAll(".progress i");
+let stage = box.querySelector(".stage");
+function contenido(){
   if (paso < PREGUNTAS.length){
     const P = PREGUNTAS[paso];
-    box.innerHTML = barra(paso + 1) + `<div class="step-label">Pregunta ${paso + 1} de ${PREGUNTAS.length}</div><div class="q">${P.q}</div>
-      <div class="opts">${P.o.map(([v,l]) => `<button type="button" data-v="${v}">${l}</button>`).join("")}</div>
+    return `<div class="step-label">Pregunta ${paso + 1} de ${PREGUNTAS.length}</div><div class="q">${P.q}</div>
+      <div class="opts">${P.o.map(([v,l], i) => `<button type="button" data-v="${v}" style="--i:${i}">${l}</button>`).join("")}</div>
       ${paso ? '<button type="button" class="back" data-back>← Anterior</button>' : ""}`;
-    return;
   }
   const r = TRAT[resp.p], bono = resp.f === "bono";
   const titulo = bono ? "Bono Radiante con " + r.t.charAt(0).toLowerCase() + r.t.slice(1) : r.t;
   const lista = ["Estudio de tu piel incluido", ...r.l, ...(bono ? ["4 sesiones + peelings de regalo"] : [])];
-  box.innerHTML = barra(3) + `<div class="result">
+  return `<div class="result">
       <span class="eyebrow">Tu tratamiento ideal</span>
       <h3>${titulo}</h3>
       <p class="why">${r.w}${resp.t === "sensible" ? " Adaptamos la intensidad a tu piel sensible." : ""}</p>
-      <ul>${lista.map(x => `<li>${x}</li>`).join("")}</ul>
+      <ul>${lista.map((x, i) => `<li style="--i:${i}">${x}</li>`).join("")}</ul>
       <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink(`¡Hola Karité! He hecho el test de la web (${TIPO[resp.t]}) y me sale: ${titulo}. ¿Qué huecos tenéis?`)}">Reservar este tratamiento</a>
       <p class="note">Orientación general. Lo confirmamos contigo tras el estudio de tu piel.</p>
     </div><button type="button" class="back" data-restart>Repetir el test</button>`;
 }
+function render(animar){
+  segs.forEach((s, i) => s.classList.toggle("on", i < Math.min(paso + 1, PREGUNTAS.length)));
+  const pintar = () => {
+    const nuevo = document.createElement("div");
+    nuevo.className = "stage";
+    nuevo.innerHTML = contenido();
+    stage.replaceWith(nuevo); stage = nuevo; ocupado = false;
+    if (animar){ const f = stage.querySelector(".opts button, .result .btn"); if (f) f.focus({preventScroll:true}); }
+  };
+  if (!animar || REDUCE) return pintar();
+  stage.classList.add("out");
+  setTimeout(pintar, 200);
+}
 box.addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  if (b.dataset.v){ resp[PREGUNTAS[paso].k] = b.dataset.v; paso++; }
-  else if ("back" in b.dataset){ paso--; }
+  const b = e.target.closest("button"); if (!b || ocupado) return;
+  ocupado = true;
+  if (b.dataset.v){
+    resp[PREGUNTAS[paso].k] = b.dataset.v; paso++;
+    b.classList.add("picked");
+    return setTimeout(() => render(true), REDUCE ? 0 : 220);
+  }
+  if ("back" in b.dataset) paso--;
   else if ("restart" in b.dataset){ paso = 0; resp = {}; }
-  render();
-  const first = box.querySelector(".opts button, .result .btn"); if (first) first.focus({preventScroll:true});
+  render(true);
 });
-render();
+render(false);
+
+/* Aparición al hacer scroll (solo lo que está por debajo de la primera pantalla) */
+if (!REDUCE && "IntersectionObserver" in window){
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+  const objetivos = [".trust .wrap", "#test .quiz-card", ".bono .poster", ".bono > div:last-child", ".checks li", ".sec-head", ".t-card", ".review", ".facade", ".final-grid > div:last-child"];
+  document.querySelectorAll(objetivos.join(",")).forEach(el => {
+    if (el.getBoundingClientRect().top < innerHeight) return;
+    const hermanos = [...el.parentElement.children].filter(x => x.matches(".t-card, .review, .checks li"));
+    el.style.setProperty("--i", Math.max(0, hermanos.indexOf(el)));
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+
+  /* Paralaje suave de la foto de portada */
+  const foto = document.querySelector(".hero-photo .arch img");
+  let tick = false;
+  setTimeout(() => {
+    foto.classList.add("parallax");
+    addEventListener("scroll", () => {
+      if (tick) return; tick = true;
+      requestAnimationFrame(() => { const y = Math.min(scrollY, 700); foto.style.transform = `translateY(${y * 0.08}px) scale(1.06)`; tick = false; });
+    }, {passive:true});
+    foto.style.transform = "scale(1.06)";
+    foto.style.transition = "transform .2s linear";
+  }, 1800);
+}
 
 /* Botón fijo en móvil tras pasar la portada */
 const sticky = document.getElementById("sticky"), hero = document.querySelector(".hero");
