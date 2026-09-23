@@ -3,20 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Karité Zaragoza</title>
-<meta name="description" content="Karité, tienda de cosmética natural en el Actur (Zaragoza). Manteca de karité, aceites, jabones artesanos y asesoramiento personalizado. Calle del Valle de Zuriza, 25.">
-<meta property="og:title" content="Karité · Cosmética natural en el Actur, Zaragoza">
-<meta property="og:description" content="Asesoramiento gratuito, ingredientes que se entienden y reservas por WhatsApp. Calle del Valle de Zuriza, 25.">
+<title>Karité Estética Avanzada</title>
+<meta name="description" content="Karité, centro de estética avanzada en Zaragoza. Tratamientos faciales y corporales, aparatología, presoterapia, manicura, pedicura, depilación y lifting de pestañas. Calle del Valle de Zuriza, 25. Cita por WhatsApp: 614 531 830.">
+<meta property="og:title" content="Karité · Estética avanzada en Zaragoza">
+<meta property="og:description" content="Tratamientos faciales y corporales con cosmética profesional y aparatología. Pide tu cita por WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="img/fachada.jpg">
+<link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=Allura&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  "name": "Karité",
-  "description": "Tienda de cosmética natural en el Actur, Zaragoza.",
+  "@type": "BeautySalon",
+  "name": "Karité Estética Avanzada",
+  "description": "Centro de estética avanzada en Zaragoza: tratamientos faciales y corporales, presoterapia, aparatología, manicura, pedicura, depilación y lifting de pestañas.",
+  "telephone": "+34614531830",
+  "image": "img/fachada.jpg",
+  "logo": "img/logo.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Calle del Valle de Zuriza, 25",
@@ -25,218 +30,226 @@
     "addressRegion": "Aragón",
     "addressCountry": "ES"
   },
-  "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "14:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "17:00", "closes": "20:30"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
-  ]
+  "sameAs": ["https://www.instagram.com/karitezaragoza/"]
 }
 </script>
 <style>
 :root{
-  --ground:#F1F3EC;
+  --ground:#FBF6F4;
   --surface:#FFFFFF;
-  --surface-2:#E6EADF;
-  --ink:#1D2620;
-  --ink-soft:#4D5A50;
-  --line:#CFD6C8;
-  --accent:#2F5D46;
-  --accent-ink:#FFFFFF;
-  --nut:#9C5F2B;
-  --nut-soft:#EBD9C4;
-  --ok:#2E7D4F;
-  --off:#A1452F;
-  --shadow:0 18px 40px -24px rgba(29,38,32,.35);
+  --blush:#F3E3DF;
+  --blush-deep:#E7CBC4;
+  --ink:#2A2A25;
+  --ink-soft:#5F5D55;
+  --line:#E6DAD5;
+  --green:#4B6A4C;
+  --green-ink:#FFFFFF;
+  --leaf:#DCE7D8;
+  --gold:#857A2E;
+  --ok:#3F7F4C;
+  --off:#A4503C;
+  --shadow:0 22px 44px -28px rgba(60,40,35,.45);
   --display:"Marcellus", "Cormorant Garamond", Georgia, serif;
+  --script:"Allura", "Snell Roundhand", "Segoe Script", cursive;
   --body:"Figtree", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --ground:#121814; --surface:#1A221D; --surface-2:#232D26;
-    --ink:#E8ECE4; --ink-soft:#A9B5AA; --line:#33403A;
-    --accent:#8CC3A4; --accent-ink:#0F1A14;
-    --nut:#DDA46C; --nut-soft:#3A2C1E;
-    --ok:#7ED3A0; --off:#F0987F;
-    --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+    --ground:#171513; --surface:#211E1B; --blush:#2E2522; --blush-deep:#46342F;
+    --ink:#EFEAE4; --ink-soft:#B5ADA4; --line:#3A332F;
+    --green:#A7C6A2; --green-ink:#14200F; --leaf:#26301F;
+    --gold:#D4C47A; --ok:#86D196; --off:#F09A84;
+    --shadow:0 22px 44px -28px rgba(0,0,0,.8);
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --ground:#121814; --surface:#1A221D; --surface-2:#232D26;
-  --ink:#E8ECE4; --ink-soft:#A9B5AA; --line:#33403A;
-  --accent:#8CC3A4; --accent-ink:#0F1A14;
-  --nut:#DDA46C; --nut-soft:#3A2C1E;
-  --ok:#7ED3A0; --off:#F0987F;
-  --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+  --ground:#171513; --surface:#211E1B; --blush:#2E2522; --blush-deep:#46342F;
+  --ink:#EFEAE4; --ink-soft:#B5ADA4; --line:#3A332F;
+  --green:#A7C6A2; --green-ink:#14200F; --leaf:#26301F;
+  --gold:#D4C47A; --ok:#86D196; --off:#F09A84;
+  --shadow:0 22px 44px -28px rgba(0,0,0,.8);
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-img,svg{max-width:100%}
+img{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--nut);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
 h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
 h3{font-size:1.3rem}
 p{margin:0}
 .wrap{max-width:1140px;margin:0 auto;padding-inline:20px}
-.eyebrow{font:500 .74rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--nut)}
-.inci{font:400 .78rem/1.4 var(--mono);color:var(--ink-soft)}
+.eyebrow{font:600 .74rem/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.script{font-family:var(--script);font-weight:400;color:var(--gold);font-size:1.5em;line-height:.8}
 .lead{font-size:1.1rem;color:var(--ink-soft);max-width:60ch}
 section{padding-block:clamp(56px,8vw,96px)}
-.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:680px}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:700px}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s, background .15s}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--accent);color:var(--accent-ink)}
-.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-primary{background:var(--green);color:var(--green-ink)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
 .btn-small{padding:9px 14px;font-size:.85rem}
 .btn svg{width:18px;height:18px;flex:none}
 
-/* demo ribbon */
-.ribbon{background:var(--nut-soft);color:var(--ink);font-size:.85rem}
+.ribbon{background:var(--blush-deep);color:var(--ink);font-size:.85rem}
 .ribbon .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:8px}
 .ribbon button{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;flex:none}
 
-/* header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
-.logo{font:400 1.6rem/1 var(--display);letter-spacing:.06em;text-decoration:none;display:flex;align-items:baseline;gap:10px}
-.logo small{font:500 .62rem/1 var(--mono);letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:24px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{width:46px;height:46px;border-radius:50%}
+.logo b{font:400 1.9rem/1 var(--script);color:var(--gold)}
+.logo small{display:block;font:600 .58rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
 nav.main{display:flex;gap:22px;margin-left:auto}
 nav.main a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink-soft)}
 nav.main a:hover{color:var(--ink)}
-@media (max-width:860px){nav.main{display:none} header.top .btn{margin-left:auto}}
+@media (max-width:880px){nav.main{display:none} header.top .btn{margin-left:auto}}
 
 /* hero */
-.hero{padding-block:clamp(40px,6vw,80px) clamp(48px,7vw,88px)}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);margin-block:18px 20px}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero{padding-block:clamp(36px,6vw,72px);background:linear-gradient(180deg,var(--blush) 0%,var(--ground) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5vw,3.8rem);margin-block:16px 20px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.status{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.9rem}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.88rem}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--off);flex:none}
-.status.open .dot{background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
-.label-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow);position:relative}
-.label-card svg.jar{display:block;margin:0 auto 18px;width:210px;height:auto}
-.label-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;border-top:1px dashed var(--line);padding-top:16px}
-.label-card dt{font:500 .72rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
-.label-card dd{margin:0;font-size:.92rem}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.label-card{max-width:440px}}
+.chip.open .dot{background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.hero-photo{position:relative;max-width:440px;justify-self:center;width:100%}
+.hero-photo .arch{border-radius:220px 220px 24px 24px;overflow:hidden;aspect-ratio:4/5;max-width:100%;box-shadow:var(--shadow);border:6px solid var(--surface)}
+.hero-photo .arch img{width:100%;height:100%;object-fit:cover}
+.hero-photo .badge{position:absolute;left:-18px;bottom:28px;width:118px;height:118px;border-radius:50%;box-shadow:var(--shadow);border:4px solid var(--surface);background:var(--surface)}
+.hero-photo .badge img{width:100%;height:100%;border-radius:50%}
+.hero-photo .note{position:absolute;right:-10px;top:36px;background:var(--surface);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);font-size:.85rem;max-width:190px}
+.hero-photo .note b{display:block;font-family:var(--display);font-weight:400;font-size:1.05rem}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr}.hero-photo{max-width:360px}.hero-photo .badge{left:0}.hero-photo .note{right:0}}
 
-/* promises */
-.promises{border-block:1px solid var(--line);background:var(--surface);padding-block:28px}
-.promises ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.promises li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
-.promises svg{width:32px;height:32px;color:var(--accent)}
-.promises strong{display:block;font-weight:600}
-.promises span{font-size:.9rem;color:var(--ink-soft)}
-@media (max-width:900px){.promises ul{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.promises ul{grid-template-columns:1fr}}
+/* treatments */
+.treat{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.t-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:12px;grid-template-rows:auto auto 1fr auto;align-content:start}
+.t-card .ph{width:96px;height:96px;border-radius:50%;overflow:hidden;border:3px solid var(--blush-deep)}
+.t-card .ph img{width:100%;height:100%;object-fit:cover}
+.t-card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.93rem;color:var(--ink-soft)}
+.t-card li{padding-left:16px;position:relative}
+.t-card li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green);opacity:.6}
+.t-card .btn{justify-self:start;margin-top:6px}
+@media (max-width:980px){.treat{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.treat{grid-template-columns:1fr}}
 
-/* categories */
-.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.cat{background:var(--ground);padding:26px;display:grid;gap:8px;align-content:start;transition:background .2s}
-.cat:hover{background:var(--surface)}
-.cat p{color:var(--ink-soft);font-size:.95rem}
-@media (max-width:860px){.cats{grid-template-columns:1fr 1fr}}
-@media (max-width:540px){.cats{grid-template-columns:1fr}}
+/* tech */
+.tech{background:var(--leaf)}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tech figure{margin:0;background:var(--surface);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.tech figure img{width:100%;aspect-ratio:1/1;object-fit:cover;max-width:100%}
+.tech figcaption{padding:18px 20px 22px;display:grid;gap:6px}
+.tech figcaption p{font-size:.93rem;color:var(--ink-soft)}
+@media (max-width:860px){.tech-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.tech-grid{grid-template-columns:1fr}}
 
 /* quiz */
-.quiz-sec{background:var(--accent);color:var(--accent-ink)}
-.quiz-sec .eyebrow{color:var(--accent-ink);opacity:.75}
-.quiz-sec .lead{color:var(--accent-ink);opacity:.85}
+.quiz-sec{background:var(--green);color:var(--green-ink)}
+.quiz-sec .eyebrow{color:var(--green-ink);opacity:.8}
+.quiz-sec .lead{color:var(--green-ink);opacity:.88}
 .quiz{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .quiz fieldset{border:0;margin:0 0 22px;padding:0}
 .quiz legend{font-weight:600;margin-bottom:10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{cursor:pointer}
 .chips input{position:absolute;opacity:0;pointer-events:none}
-.chips span{display:inline-block;padding:9px 15px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--accent-ink) 45%,transparent);font-size:.92rem;transition:background .15s}
-.chips input:checked + span{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink);font-weight:600}
-.chips input:focus-visible + span{outline:2px solid var(--nut);outline-offset:2px}
-.result{background:var(--surface);color:var(--ink);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
-.result h3{margin:6px 0 14px}
-.result ol{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s}
-.result li{display:grid;grid-template-columns:34px 1fr;gap:12px;counter-increment:s}
-.result li::before{content:counter(s);width:30px;height:30px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font:500 .85rem/1 var(--mono);color:var(--accent)}
-.result li b{display:block}
-.result li small{color:var(--ink-soft);font-size:.88rem}
-.result .note{font-size:.82rem;color:var(--ink-soft);margin-top:14px}
+.chips span{display:inline-block;padding:9px 15px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--green-ink) 45%,transparent);font-size:.92rem}
+.chips input:checked + span{background:var(--green-ink);color:var(--green);border-color:var(--green-ink);font-weight:600}
+.chips input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.result{background:var(--surface);color:var(--ink);border-radius:20px;padding:28px;box-shadow:var(--shadow);display:grid;gap:14px}
+.result .why{color:var(--ink-soft);font-size:.95rem}
+.result ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.result li{display:flex;gap:10px;font-size:.93rem}
+.result li::before{content:"✓";color:var(--green);font-weight:700}
+.result .btn{justify-self:start}
+.result .note{font-size:.8rem;color:var(--ink-soft)}
 @media (max-width:860px){.quiz{grid-template-columns:1fr}}
 
-/* products */
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.product{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
-.product .swatch{aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;position:relative}
-.product .swatch svg{width:42%;height:auto}
-.product .tag{position:absolute;top:12px;left:12px;font:500 .7rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--surface);color:var(--ink);padding:6px 9px;border-radius:999px}
-.product .body{padding:18px 20px 20px;display:grid;gap:8px;grid-template-rows:auto auto 1fr auto}
-.product p{font-size:.93rem;color:var(--ink-soft)}
-.product .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
-.product .fmt{font:400 .8rem/1 var(--mono);color:var(--ink-soft)}
-@media (max-width:900px){.products{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.products{grid-template-columns:1fr}}
+/* bono */
+.bono{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.bono .poster{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);max-width:360px;justify-self:center}
+.bono .poster img{width:100%}
+.bono-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-block:22px}
+.bono-cols div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.bono-cols h3{font-size:1.02rem;font-family:var(--body);font-weight:600;margin-bottom:8px}
+.bono-cols ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.92rem}
+.gift{display:flex;gap:12px;align-items:center;background:var(--blush);border-radius:14px;padding:14px 18px;margin-bottom:22px;font-size:.95rem}
+.gift svg{width:28px;height:28px;color:var(--gold);flex:none}
+@media (max-width:860px){.bono{grid-template-columns:1fr}.bono-cols{grid-template-columns:1fr}}
 
-/* gifts */
-.gifts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.gift{border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start;background:var(--ground)}
-.gift.feature{background:var(--nut-soft);border-color:transparent}
-.gift ul{margin:4px 0 8px;padding-left:18px;color:var(--ink-soft);font-size:.93rem}
-.gift .price{font:500 .85rem/1 var(--mono);color:var(--nut)}
-.gift .btn{justify-self:start}
-@media (max-width:860px){.gifts{grid-template-columns:1fr}}
+/* brands */
+.brands{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.brand-list{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;gap:1px;background:var(--line);margin-top:26px}
+.brand-list div{background:var(--ground);padding:16px 12px;text-align:center;display:grid;gap:4px}
+.brand-list b{font:400 1.05rem/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.brand-list span{font-size:.75rem;color:var(--ink-soft)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shots img{border-radius:16px;width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.shots img:first-child{grid-row:span 2;aspect-ratio:auto;height:100%}
+@media (max-width:860px){.brands{grid-template-columns:1fr}}
+@media (max-width:460px){.brand-list{grid-template-columns:1fr 1fr}}
 
-/* about + reviews */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.about p + p{margin-top:14px}
-.reviews{display:grid;gap:14px}
-.review{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
-.review .stars{color:var(--nut);letter-spacing:2px;font-size:.9rem}
-.review footer{font-size:.85rem;color:var(--ink-soft);margin-top:6px}
-.sample{font:500 .68rem/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
-@media (max-width:860px){.about{grid-template-columns:1fr}}
+/* volveremos */
+.local{background:var(--surface);border:1.5px dashed var(--gold);border-radius:20px;padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+.local .tag{font:400 2.2rem/1 var(--script);color:var(--gold);white-space:nowrap}
+.local p{color:var(--ink-soft);font-size:.95rem}
+.local strong{color:var(--ink)}
+@media (max-width:760px){.local{grid-template-columns:1fr}}
+
+/* instagram */
+.insta{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.insta a{display:block;border-radius:12px;overflow:hidden;aspect-ratio:1/1;max-width:100%}
+.insta img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.insta a:hover img{transform:scale(1.05)}
+@media (max-width:860px){.insta{grid-template-columns:repeat(3,1fr)}}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0}
+.review .stars{color:var(--gold);letter-spacing:2px}
+.review footer{font-size:.85rem;color:var(--ink-soft);margin-top:8px}
+.sample{font:600 .7rem/1.3 var(--body);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft)}
+@media (max-width:860px){.reviews{grid-template-columns:1fr}}
 
 /* visit */
 .visit{background:var(--surface);border-block:1px solid var(--line)}
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.addr{font:400 1.5rem/1.35 var(--display);margin:10px 0 18px}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px}
+.facade{border-radius:18px;overflow:hidden;position:relative}
+.facade img{width:100%;aspect-ratio:1156/320;object-fit:cover;max-width:100%}
+.facade span{position:absolute;left:12px;bottom:12px;background:var(--surface);color:var(--ink);font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:999px}
+.addr{font:400 1.5rem/1.35 var(--display);margin:22px 0 14px}
 .copy{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:500 .8rem/1 var(--body);color:var(--ink-soft);cursor:pointer}
+.contact{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin-top:18px;font-size:.95rem}
+.contact dt{color:var(--ink-soft)}
+.contact dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
 .visit .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.map-card{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);text-decoration:none;margin-top:24px;background:var(--surface-2)}
-.map-card svg{display:block;width:100%;height:auto}
-.map-card span{display:block;padding:12px 16px;font-size:.9rem;font-weight:600}
-table.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+table.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:14px}
 table.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
 table.hours td:last-child{text-align:right;color:var(--ink-soft)}
 table.hours tr.today td{font-weight:600;color:var(--ink)}
-table.hours tr.today td:first-child::after{content:"hoy";margin-left:10px;font:500 .68rem/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;background:var(--accent);color:var(--accent-ink);padding:4px 7px;border-radius:999px;vertical-align:2px}
+table.hours tr.today td:first-child::after{content:"hoy";margin-left:10px;font:600 .66rem/1 var(--body);text-transform:uppercase;letter-spacing:.1em;background:var(--green);color:var(--green-ink);padding:4px 7px;border-radius:999px;vertical-align:2px}
+.pending{font-size:.85rem;color:var(--off);margin-top:12px}
 @media (max-width:860px){.visit-grid{grid-template-columns:1fr}}
 
-/* club */
-.club{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--surface-2);border-radius:24px;padding:clamp(24px,4vw,48px)}
-.club form{display:flex;gap:10px;flex-wrap:wrap}
-.club input{flex:1 1 220px;padding:13px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
-.club .ok{margin-top:12px;font-size:.92rem;color:var(--accent);font-weight:600}
-.club small{display:block;margin-top:10px;color:var(--ink-soft);font-size:.8rem}
-@media (max-width:860px){.club{grid-template-columns:1fr}}
-
-/* faq */
-.faq{max-width:760px}
+.faq{max-width:780px}
 .faq details{border-bottom:1px solid var(--line);padding-block:18px}
 .faq summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:400 1.4rem/1 var(--display);color:var(--accent)}
+.faq summary::after{content:"+";font:400 1.4rem/1 var(--display);color:var(--green)}
 .faq details[open] summary::after{content:"–"}
 .faq details p{margin-top:10px;color:var(--ink-soft);max-width:65ch}
 
-footer.site{padding-block:40px 96px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft)}
-footer.site .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between}
+footer.site{padding-block:40px 100px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
 footer.site a{color:var(--ink-soft)}
 
 .wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
@@ -247,23 +260,23 @@ footer.site a{color:var(--ink-soft)}
 
 <div class="ribbon" id="ribbon">
   <div class="wrap">
-    <span><strong>Propuesta de web para Karité.</strong> El teléfono, el horario y las opiniones son de ejemplo hasta que los confirmemos juntas.</span>
+    <span><strong>Propuesta de web para Karité.</strong> Fotos y datos sacados de vuestro Instagram y Facebook. El horario y las opiniones son de ejemplo.</span>
     <button type="button" id="ribbon-close">Ocultar</button>
   </div>
 </div>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio">KARITÉ <small>Cosmética natural</small></a>
+    <a class="logo" href="#inicio"><img src="img/logo.png" alt=""><span><b>Karité</b><small>Estética avanzada</small></span></a>
     <nav class="main" aria-label="Principal">
-      <a href="#productos">Productos</a>
-      <a href="#rutina">Tu rutina</a>
-      <a href="#regalos">Regalos</a>
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#test">¿Qué necesito?</a>
+      <a href="#bono">Bono Radiante</a>
       <a href="#visitanos">Visítanos</a>
     </nav>
-    <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Tengo una consulta:" href="#" target="_blank" rel="noopener">
+    <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-      Escríbenos
+      Pedir cita
     </a>
   </div>
 </header>
@@ -273,192 +286,209 @@ footer.site a{color:var(--ink-soft)}
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Cosmética natural · Actur, Zaragoza</span>
-      <h1>Tu piel no necesita más productos. Necesita <em>los adecuados</em>.</h1>
-      <p class="lead">En Karité te ayudamos a elegir cremas, aceites y jabones con ingredientes que se entienden. Ven a probarlos, te asesoramos sin prisa y sin compromiso.</p>
+      <span class="eyebrow">Centro de estética avanzada · Zaragoza</span>
+      <h1>Tratamientos faciales y corporales que <span class="script">se notan</span></h1>
+      <p class="lead">Cosmética profesional y aparatología de última generación para tu piel, tu cuerpo, tus manos y tu mirada. Empezamos siempre con un estudio de tu piel para recomendarte solo lo que necesitas.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#rutina">Descubre tu rutina en 30 segundos</a>
-        <a class="btn btn-ghost" href="#visitanos">Cómo llegar</a>
+        <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
+        <a class="btn btn-ghost" href="#tratamientos">Ver tratamientos</a>
       </div>
-      <div class="status" id="status" aria-live="polite"><span class="dot"></span><span id="status-text">Consultando horario…</span></div>
+      <div class="facts">
+        <span class="chip" id="status" aria-live="polite"><span class="dot"></span><span id="status-text">Consultando horario…</span></span>
+        <span class="chip">Calle del Valle de Zuriza, 25</span>
+      </div>
     </div>
-
-    <aside class="label-card" aria-label="Ficha de la manteca de karité">
-      <svg class="jar" viewBox="0 0 220 200" aria-hidden="true">
-        <g fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round">
-          <path d="M176 44c18-14 34-12 40-10-6 18-22 26-40 22" fill="color-mix(in srgb, var(--accent) 16%, transparent)"/>
-          <path d="M176 56c14-2 28 6 36 18-16 8-32 2-38-8" fill="color-mix(in srgb, var(--accent) 16%, transparent)"/>
-          <path d="M168 62c12 4 14 20 10 30"/>
-          <path d="M22 70c-12-10-12-26-8-34 16 4 22 18 20 32" fill="color-mix(in srgb, var(--accent) 16%, transparent)"/>
-        </g>
-        <ellipse cx="186" cy="102" rx="12" ry="15" fill="var(--nut)"/>
-        <ellipse cx="182" cy="97" rx="3" ry="5" fill="var(--nut-soft)" opacity=".7"/>
-        <rect x="52" y="52" width="116" height="22" rx="6" fill="var(--nut)"/>
-        <rect x="46" y="72" width="128" height="116" rx="22" fill="var(--nut-soft)" stroke="var(--nut)" stroke-width="2"/>
-        <path d="M58 82 q52 14 104 0" stroke="var(--surface)" stroke-width="3" fill="none" opacity=".8"/>
-        <rect x="62" y="104" width="96" height="58" rx="6" fill="var(--surface)" stroke="var(--line)"/>
-        <text x="110" y="128" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="16" letter-spacing="2" fill="var(--ink)">KARITÉ</text>
-        <text x="110" y="145" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="var(--ink-soft)">100% sin refinar · 200 g</text>
-      </svg>
-      <span class="eyebrow">Nuestro ingrediente estrella</span>
-      <h3 style="margin:8px 0 14px">Manteca de karité</h3>
-      <dl>
-        <dt>INCI</dt><dd>Butyrospermum parkii butter</dd>
-        <dt>Origen</dt><dd>Nuez del árbol de karité, África occidental</dd>
-        <dt>Para</dt><dd>Piel seca, labios, codos, cabello encrespado</dd>
-      </dl>
-    </aside>
+    <div class="hero-photo">
+      <div class="arch"><img src="img/facial-relax.jpg" alt="Clienta relajada durante un tratamiento facial"></div>
+      <div class="badge"><img src="img/logo.png" alt="Logotipo de Karité Estética Avanzada"></div>
+      <div class="note"><b>Estudio de piel</b>Antes de cada tratamiento facial, analizamos tu piel.</div>
+    </div>
   </div>
 </section>
 
-<div class="promises">
-  <div class="wrap">
-    <ul>
-      <li>
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 25c0-5 4.5-8 10-8s10 3 10 8"/><circle cx="16" cy="10" r="5"/></svg>
-        <div><strong>Asesoramiento gratis</strong><span>Te miramos la piel y te recomendamos solo lo que necesitas.</span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="5" width="18" height="22" rx="3"/><path d="M11 11h10M11 16h10M11 21h6"/></svg>
-        <div><strong>Ingredientes que se leen</strong><span>Te explicamos cada etiqueta, sin letra pequeña.</span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="12" width="22" height="15" rx="2"/><path d="M5 17h22M16 12v15M16 12c-3-6-9-5-8-1 1 2 8 1 8 1Zm0 0c3-6 9-5 8-1-1 2-8 1-8 1Z"/></svg>
-        <div><strong>Envoltorio regalo</strong><span>Sin coste, con papel reciclado y tarjeta escrita a mano.</span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 12h20l-2 14H8L6 12Z"/><path d="M11 12a5 5 0 0 1 10 0"/><path d="m12 19 3 3 5-5"/></svg>
-        <div><strong>Reserva y recoge</strong><span>Pídelo por WhatsApp y te lo apartamos en tienda.</span></div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<section id="productos">
+<section id="tratamientos">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Qué encontrarás en la tienda</span>
-      <h2>Todo lo que tu piel y tu pelo necesitan, en un solo sitio del barrio</h2>
+      <span class="eyebrow">Tratamientos</span>
+      <h2>Todo tu cuidado en un mismo centro</h2>
+      <p class="lead">Elige un tratamiento y pide cita en un clic: te llega a WhatsApp con el mensaje ya escrito.</p>
     </div>
-    <div class="cats">
-      <div class="cat"><h3>Cuidado facial</h3><p>Limpiadores suaves, sérums, hidratantes y contornos de ojos.</p><span class="inci">Rosa mosqueta · ácido hialurónico · aloe</span></div>
-      <div class="cat"><h3>Cuerpo</h3><p>Mantecas, aceites corporales, exfoliantes y cremas de manos.</p><span class="inci">Karité · cacao · almendras dulces</span></div>
-      <div class="cat"><h3>Cabello</h3><p>Champús y acondicionadores sólidos, mascarillas y aceites de puntas.</p><span class="inci">Argán · ortiga · romero</span></div>
-      <div class="cat"><h3>Jabones artesanos</h3><p>Hechos en frío, sin perfumes sintéticos, para cara, cuerpo y bebés.</p><span class="inci">Aceite de oliva · avena · arcillas</span></div>
-      <div class="cat"><h3>Aromaterapia</h3><p>Aceites esenciales, difusores, velas de soja y brumas de almohada.</p><span class="inci">Lavanda · eucalipto · naranja dulce</span></div>
-      <div class="cat"><h3>Bebé y piel sensible</h3><p>Fórmulas mínimas para las pieles que más cuidado necesitan.</p><span class="inci">Caléndula · óxido de zinc · manzanilla</span></div>
+    <div class="treat">
+      <article class="t-card">
+        <div class="ph"><img src="img/h-faciales.jpg" alt="Máscara LED de tratamiento facial"></div>
+        <h3>Faciales</h3>
+        <ul><li>Higiene facial profunda</li><li>Hidratación profunda con ácido hialurónico</li><li>Peeling Probiome de Skeyndor</li><li>Exosomas regeneradores</li><li>Terapia infrarroja y LED</li></ul>
+        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Quiero información sobre los tratamientos faciales." href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/h-corporales.jpg" alt="Tratamiento corporal con aparatología"></div>
+        <h3>Corporales</h3>
+        <ul><li>Presoterapia</li><li>Aparatología reductora y reafirmante</li><li>Peeling corporal</li><li>Tratamiento de piernas cansadas</li></ul>
+        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Quiero información sobre los tratamientos corporales." href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/h-manicura.jpg" alt="Manicura con esmalte nude y dorado"></div>
+        <h3>Manos, pies y depilación</h3>
+        <ul><li>Manicura</li><li>Pedicura</li><li>Depilación</li></ul>
+        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Quiero cita para manicura, pedicura o depilación." href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/h-lifting.jpg" alt="Pestañas tras un lifting"></div>
+        <h3>Mirada</h3>
+        <ul><li>Lifting de pestañas</li><li>Tinte de pestañas y cejas</li><li>Tratamiento fortalecedor de cejas Thuya</li></ul>
+        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Quiero cita para lifting y tinte de pestañas." href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="quiz-sec" id="rutina">
+<section class="tech">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Aparatología avanzada</span>
+      <h2>Tecnología profesional al servicio de tu piel</h2>
+    </div>
+    <div class="tech-grid">
+      <figure>
+        <img src="img/infrarroja.jpg" alt="Terapia infrarroja facial con rodillos X-Medikal" loading="lazy">
+        <figcaption><h3>Terapia infrarroja X-Medikal</h3><p>Rodillos de luz infrarroja que estimulan la piel y potencian el efecto de los activos del tratamiento.</p></figcaption>
+      </figure>
+      <figure>
+        <img src="img/x-medikal.jpg" alt="Tratamiento facial con varios rodillos dorados" loading="lazy">
+        <figcaption><h3>Tratamientos multitecnología</h3><p>Combinamos aparatos y cosmética profesional para trabajar luminosidad, firmeza y arrugas.</p></figcaption>
+      </figure>
+      <figure>
+        <img src="img/corporal.jpg" alt="Aparato de tratamiento corporal sobre el abdomen" loading="lazy">
+        <figcaption><h3>Remodelación corporal</h3><p>Aparatología para trabajar el abdomen, la celulitis y la flacidez, junto con presoterapia.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-sec" id="test">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Test de 3 preguntas</span>
-      <h2>¿No sabes por dónde empezar? Te proponemos una rutina</h2>
-      <p class="lead">Responde y te sugerimos tres pasos. Luego te lo preparamos para que lo pruebes en tienda.</p>
+      <h2>¿Qué tratamiento facial te conviene?</h2>
+      <p class="lead">Responde y te orientamos. Después, en tu primera visita, lo confirmamos con un estudio de tu piel.</p>
     </div>
     <div class="quiz">
-      <form id="quiz" aria-label="Test de rutina">
+      <form id="quiz" aria-label="Test de tratamiento facial">
         <fieldset>
-          <legend>¿Cómo notas tu piel al final del día?</legend>
+          <legend>¿Qué es lo que más te preocupa ahora?</legend>
           <div class="chips">
-            <label><input type="radio" name="piel" id="piel-seca" value="seca" checked><span>Tirante, seca</span></label>
-            <label><input type="radio" name="piel" id="piel-mixta" value="mixta"><span>Brillo en la zona T</span></label>
-            <label><input type="radio" name="piel" id="piel-grasa" value="grasa"><span>Grasa, con granitos</span></label>
-            <label><input type="radio" name="piel" id="piel-sensible" value="sensible"><span>Se enrojece fácil</span></label>
+            <label><input type="radio" name="p" id="p-luz" value="luz" checked><span>Piel apagada o manchas</span></label>
+            <label><input type="radio" name="p" id="p-hidra" value="hidra"><span>Tirantez, deshidratación</span></label>
+            <label><input type="radio" name="p" id="p-arrugas" value="arrugas"><span>Arrugas o flacidez</span></label>
+            <label><input type="radio" name="p" id="p-poros" value="poros"><span>Poros e impurezas</span></label>
           </div>
         </fieldset>
         <fieldset>
-          <legend>¿Qué te gustaría mejorar?</legend>
+          <legend>¿Cómo es tu piel?</legend>
           <div class="chips">
-            <label><input type="radio" name="objetivo" id="obj-hidratar" value="hidratar" checked><span>Hidratación</span></label>
-            <label><input type="radio" name="objetivo" id="obj-luz" value="luz"><span>Manchas y luminosidad</span></label>
-            <label><input type="radio" name="objetivo" id="obj-calmar" value="calmar"><span>Calmar rojeces</span></label>
-            <label><input type="radio" name="objetivo" id="obj-edad" value="edad"><span>Líneas de expresión</span></label>
+            <label><input type="radio" name="t" id="t-normal" value="normal" checked><span>Normal o mixta</span></label>
+            <label><input type="radio" name="t" id="t-seca" value="seca"><span>Seca</span></label>
+            <label><input type="radio" name="t" id="t-grasa" value="grasa"><span>Grasa</span></label>
+            <label><input type="radio" name="t" id="t-sensible" value="sensible"><span>Sensible</span></label>
           </div>
         </fieldset>
         <fieldset>
-          <legend>¿Cómo prefieres tus productos?</legend>
+          <legend>¿Qué buscas?</legend>
           <div class="chips">
-            <label><input type="radio" name="formato" id="fmt-ligero" value="ligero" checked><span>Texturas ligeras</span></label>
-            <label><input type="radio" name="formato" id="fmt-rico" value="rico"><span>Texturas ricas</span></label>
-            <label><input type="radio" name="formato" id="fmt-solido" value="solido"><span>Sólidos, sin plástico</span></label>
+            <label><input type="radio" name="f" id="f-puntual" value="puntual" checked><span>Una sesión para probar</span></label>
+            <label><input type="radio" name="f" id="f-bono" value="bono"><span>Un plan con seguimiento</span></label>
           </div>
         </fieldset>
       </form>
-
       <div class="result" aria-live="polite">
-        <span class="eyebrow">Tu rutina sugerida</span>
-        <h3 id="r-title">Piel seca que pide hidratación</h3>
-        <ol id="r-steps"></ol>
-        <a class="btn btn-primary" id="r-wa" href="#" target="_blank" rel="noopener">Que me la preparen en tienda</a>
-        <p class="note">Es una orientación general. En tienda la ajustamos a tu piel en persona.</p>
+        <span class="eyebrow">Te recomendamos</span>
+        <h3 id="r-title"></h3>
+        <p class="why" id="r-why"></p>
+        <ul id="r-list"></ul>
+        <a class="btn btn-primary" id="r-wa" href="#" target="_blank" rel="noopener">Pedir cita para este tratamiento</a>
+        <p class="note">Es una orientación. El tratamiento final lo decidimos contigo tras el estudio de tu piel.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="destacados">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Los más pedidos</span>
-      <h2>Reserva por WhatsApp y recógelo cuando te venga bien</h2>
-      <p class="lead">Sin pagar online ni crear cuentas. Nos escribes, te lo apartamos y pasas a por ello.</p>
-    </div>
-    <div class="products" id="products"></div>
-  </div>
-</section>
-
-<section id="regalos" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Regalos que se notan</span>
-      <h2>Cumpleaños, profes, amigo invisible… lo tenemos envuelto</h2>
-    </div>
-    <div class="gifts">
-      <div class="gift">
-        <h3>Pack Detalle</h3>
-        <ul><li>Jabón artesano</li><li>Bálsamo labial de karité</li><li>Bolsa de algodón</li></ul>
-        <span class="price">Ideal para profes y detalles</span>
-        <a class="btn btn-ghost btn-small js-wa" data-msg="¡Hola! Me interesa el Pack Detalle. ¿Lo tenéis disponible?" href="#" target="_blank" rel="noopener">Pedir este pack</a>
-      </div>
-      <div class="gift feature">
-        <h3>Pack Ritual</h3>
-        <ul><li>Manteca de karité pura</li><li>Aceite corporal</li><li>Vela de soja</li><li>Caja regalo</li></ul>
-        <span class="price">El más regalado</span>
-        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola! Me interesa el Pack Ritual. ¿Lo tenéis disponible?" href="#" target="_blank" rel="noopener">Pedir este pack</a>
-      </div>
-      <div class="gift">
-        <h3>Tarjeta regalo</h3>
-        <p style="color:var(--ink-soft);font-size:.93rem">Del importe que elijas. Quien la recibe viene a la tienda y le asesoramos para que elija lo que de verdad le va bien.</p>
-        <span class="price">Válida durante 12 meses</span>
-        <a class="btn btn-ghost btn-small js-wa" data-msg="¡Hola! Quiero una tarjeta regalo de Karité." href="#" target="_blank" rel="noopener">Quiero una tarjeta</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="nosotras" style="padding-top:0">
-  <div class="wrap about">
+<section id="bono">
+  <div class="wrap bono">
+    <div class="poster"><img src="img/bono-radiante.jpg" alt="Cartel del Bono Radiante de Karité" loading="lazy"></div>
     <div>
-      <span class="eyebrow">Quiénes somos</span>
-      <h2 style="margin:12px 0 20px">Una tienda de barrio con el cuidado de siempre</h2>
-      <p>Karité nació con una idea sencilla: que cuidarse no tenga que ser complicado ni caro. Por eso seleccionamos cosmética natural que conocemos y hemos probado, y la explicamos con calma a cada persona que entra por la puerta.</p>
-      <p>Aquí no vas a encontrar mil productos iguales. Encontrarás los que funcionan, y a alguien que te conoce por tu nombre.</p>
+      <span class="eyebrow">Oferta de temporada</span>
+      <h2 style="margin:10px 0 14px">Bono Radiante: recupera tu piel después del verano</h2>
+      <p class="lead">Si después del verano tu piel tiene menos luminosidad, más manchas, el poro más abierto o las arrugas más marcadas, este bono es para ti. Incluye <strong>4 sesiones faciales y estudio de la piel</strong>.</p>
+      <div class="bono-cols">
+        <div><h3>Sesiones de cuidado</h3><ul><li>Higiene facial</li><li>Hidratación profunda</li><li>Luminosidad y efecto antioxidante</li></ul></div>
+        <div><h3>Sesiones de recuperación</h3><ul><li>Diagnóstico facial</li><li>Tratamiento de recuperación cutánea tras el verano</li></ul></div>
+      </div>
+      <div class="gift">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="12" width="22" height="15" rx="2"/><path d="M5 17h22M16 12v15M16 12c-3-6-9-5-8-1 1 2 8 1 8 1Zm0 0c3-6 9-5 8-1-1 2-8 1-8 1Z"/></svg>
+        <span><strong>De regalo:</strong> un peeling corporal y un peeling facial.</span>
+      </div>
+      <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Me interesa el Bono Radiante. ¿Me dais más información?" href="#" target="_blank" rel="noopener">Quiero el Bono Radiante</a>
     </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap brands">
+    <div>
+      <span class="eyebrow">Cosmética profesional</span>
+      <h2 style="margin:10px 0 14px">Trabajamos con marcas en las que confiamos</h2>
+      <p class="lead">Y te llevas a casa los mismos productos que usamos en cabina, con la pauta exacta para tu piel.</p>
+      <div class="brand-list">
+        <div><b>Skeyndor</b><span>Faciales y solares</span></div>
+        <div><b>Keenwell</b><span>Cuidado corporal</span></div>
+        <div><b>Thuya</b><span>Cejas y pestañas</span></div>
+        <div><b>Kelaya</b><span>Hialurónico y cuerpo</span></div>
+        <div><b>Skinderma</b><span>Exosomas y vitaminas</span></div>
+        <div><b>X-Medikal</b><span>Aparatología</span></div>
+      </div>
+    </div>
+    <div class="shots">
+      <img src="img/skeyndor-estanteria.jpg" alt="Productos Skeyndor Aquatherm y Photo Defense" loading="lazy">
+      <img src="img/thuya-cabina.jpg" alt="Expositor de Thuya para cejas y pestañas en el centro" loading="lazy">
+      <img src="img/kelaya-piernas.jpg" alt="Crema corporal Kelaya aplicada en la pierna" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="local">
+      <span class="tag">Piensa en local</span>
+      <p><strong>Estamos adheridos a Volveremos 2026.</strong> Los miércoles y viernes, tus compras en Karité acumulan dinero en la app Volveremos para gastarlo en tus siguientes compras en el comercio de Aragón. Saldo válido hasta el 31 de diciembre de 2026.</p>
+      <a class="btn btn-ghost btn-small" href="https://www.volveremos.app" target="_blank" rel="noopener">Saber más</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;max-width:none;gap:16px">
+      <div style="display:grid;gap:10px"><span class="eyebrow">Instagram</span><h2>Síguenos en @karitezaragoza</h2></div>
+      <a class="btn btn-ghost btn-small" href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener">Ver perfil</a>
+    </div>
+    <div class="insta">
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/kelaya-hialuronico.jpg" alt="Concentrado de ácido hialurónico Kelaya" loading="lazy"></a>
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/piel.jpg" alt="Piel luminosa" loading="lazy"></a>
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/thuya-cabina.jpg" alt="Productos Thuya en el centro" loading="lazy"></a>
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/infrarroja.jpg" alt="Terapia infrarroja" loading="lazy"></a>
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/skeyndor-estanteria.jpg" alt="Productos Skeyndor" loading="lazy"></a>
+      <a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener"><img src="img/facial-relax.jpg" alt="Tratamiento facial" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="sample">Opiniones de ejemplo · aquí irán vuestras reseñas reales de Google</span><h2>Lo que dicen nuestras clientas</h2></div>
     <div class="reviews">
-      <span class="sample">Opiniones de ejemplo · aquí irán las reseñas reales de Google</span>
-      <blockquote class="review" style="margin:0">
-        <div class="stars" aria-label="5 de 5">★★★★★</div>
-        <p>Me recomendaron una crema para mi piel sensible y por fin no me pica. Atención de diez.</p>
-        <footer>Clienta del Actur</footer>
-      </blockquote>
-      <blockquote class="review" style="margin:0">
-        <div class="stars" aria-label="5 de 5">★★★★★</div>
-        <p>Compré un pack regalo y lo envolvieron precioso. Repetiré para Navidad.</p>
-        <footer>Cliente de Parque Goya</footer>
-      </blockquote>
+      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Hice el Bono Radiante después del verano y mi piel ha recuperado la luz. Te explican todo lo que te hacen.</p><footer>Clienta del Actur</footer></blockquote>
+      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>El lifting de pestañas me dura semanas y la manicura, perfecta. Un sitio muy cuidado.</p><footer>Clienta del Arrabal</footer></blockquote>
+      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Voy a presoterapia y noto las piernas mucho más ligeras. Trato cercano y profesional.</p><footer>Clienta de Parque Goya</footer></blockquote>
     </div>
   </div>
 </section>
@@ -467,66 +497,35 @@ footer.site a{color:var(--ink-soft)}
   <div class="wrap visit-grid">
     <div>
       <span class="eyebrow">Visítanos</span>
-      <p class="addr" id="addr">Calle del Valle de Zuriza, 25<br>50014 Zaragoza (Actur)</p>
+      <div class="facade" style="margin-top:16px"><img src="img/fachada.jpg" alt="Fachada del centro Karité con jardín vertical en el escaparate" loading="lazy"><span>Busca el escaparate verde</span></div>
+      <p class="addr" id="addr">Calle del Valle de Zuriza, 25 · 50014 Zaragoza</p>
       <button type="button" class="copy" id="copy-addr">Copiar dirección</button>
+      <dl class="contact">
+        <dt>WhatsApp</dt><dd id="phone-text"></dd>
+        <dt>Instagram</dt><dd><a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener">@karitezaragoza</a></dd>
+      </dl>
       <div class="actions">
-        <a class="btn btn-primary js-maps" href="#" target="_blank" rel="noopener">Cómo llegar</a>
-        <a class="btn btn-ghost js-wa" data-msg="¡Hola Karité! Tengo una consulta:" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
+        <a class="btn btn-ghost js-maps" href="#" target="_blank" rel="noopener">Cómo llegar</a>
       </div>
-      <p style="margin-top:18px;color:var(--ink-soft)">Teléfono: <span id="phone-text" style="font-variant-numeric:tabular-nums;color:var(--ink)"></span></p>
-      <a class="map-card js-maps" href="#" target="_blank" rel="noopener" aria-label="Abrir la ubicación en Google Maps">
-        <svg viewBox="0 0 400 180" aria-hidden="true">
-          <rect width="400" height="180" fill="var(--surface-2)"/>
-          <g stroke="var(--line)" stroke-width="10" fill="none">
-            <path d="M-10 60 L410 40"/><path d="M-10 140 L410 120"/><path d="M90 -10 L120 190"/><path d="M270 -10 L300 190"/>
-          </g>
-          <g stroke="var(--surface)" stroke-width="16" fill="none"><path d="M-10 95 L410 80"/></g>
-          <rect x="140" y="110" width="100" height="50" rx="4" fill="color-mix(in srgb, var(--accent) 18%, transparent)"/>
-          <text x="330" y="74" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-soft)" text-anchor="middle">Valle de Zuriza</text>
-          <circle cx="200" cy="88" r="22" fill="color-mix(in srgb, var(--accent) 25%, transparent)"/>
-          <path d="M200 60c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16Z" fill="var(--accent)"/>
-          <circle cx="200" cy="76" r="5" fill="var(--surface)"/>
-        </svg>
-        <span>Abrir en Google Maps →</span>
-      </a>
     </div>
     <div>
       <span class="eyebrow">Horario</span>
-      <table class="hours" style="margin-top:14px"><tbody id="hours"></tbody></table>
-      <p style="margin-top:16px;font-size:.9rem;color:var(--ink-soft)">¿No puedes venir en horario? Escríbenos y buscamos un momento para que recojas tu pedido.</p>
+      <table class="hours"><tbody id="hours"></tbody></table>
+      <p class="pending">Horario de ejemplo, pendiente de confirmar.</p>
+      <p style="margin-top:14px;font-size:.92rem;color:var(--ink-soft)">Trabajamos con cita previa para dedicarte el tiempo que necesitas. Escríbenos y te buscamos hueco.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section id="faq">
   <div class="wrap">
-    <div class="club">
-      <div>
-        <span class="eyebrow">Club Karité</span>
-        <h2 style="margin:10px 0 12px">Un 10% en tu primera compra y avisos de novedades</h2>
-        <p class="lead" style="font-size:1rem">Un correo al mes como mucho: productos nuevos, talleres en tienda y ofertas solo para el barrio.</p>
-      </div>
-      <div>
-        <form id="club-form" novalidate>
-          <label for="club-email" class="sample" style="display:block;width:100%;margin-bottom:4px">Tu correo electrónico</label>
-          <input type="email" id="club-email" placeholder="nombre@correo.com" autocomplete="email" required>
-          <button class="btn btn-primary" type="submit">Unirme</button>
-        </form>
-        <p class="ok" id="club-ok" hidden></p>
-        <small>Puedes darte de baja cuando quieras.</small>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntáis</h2></div>
+    <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Antes de tu primera visita</h2></div>
     <div class="faq">
-      <details open><summary>¿Puedo probar los productos antes de comprarlos?</summary><p>Sí. Tenemos probadores de casi todo y, si lo necesitas, te preparamos muestras para que lo pruebes unos días en casa.</p></details>
-      <details><summary>¿Cómo funciona reservar por WhatsApp?</summary><p>Pulsa “Reservar” en cualquier producto, nos llega un mensaje con lo que quieres y te confirmamos cuándo lo tienes apartado. Pagas al recogerlo en tienda.</p></details>
-      <details><summary>¿Son productos aptos para piel sensible o atópica?</summary><p>Tenemos una línea específica de fórmulas mínimas. Aun así, cada piel es un mundo: ven y lo vemos juntas antes de recomendarte nada.</p></details>
-      <details><summary>¿Hacéis envíos?</summary><p>De momento trabajamos con recogida en tienda. Si vives en el Actur y no puedes acercarte, pregúntanos.</p></details>
+      <details open><summary>¿Cómo pido cita?</summary><p>Por WhatsApp al 614 531 830 o pulsando cualquier botón «Pedir cita» de esta web. Te respondemos con los huecos disponibles.</p></details>
+      <details><summary>¿Qué es el estudio de la piel?</summary><p>Un análisis de tu tipo de piel y de sus necesidades antes de empezar. Así te recomendamos el tratamiento y los productos que de verdad te van a funcionar.</p></details>
+      <details><summary>¿Puedo comprar los productos para usarlos en casa?</summary><p>Sí. Tenemos a la venta la cosmética profesional que usamos en cabina, de marcas como Skeyndor, Keenwell, Kelaya o Thuya, y te explicamos cómo usarla.</p></details>
+      <details><summary>¿Cuántas sesiones necesito?</summary><p>Depende del tratamiento y de tu piel. Muchos tratamientos se notan desde la primera sesión, y los bonos permiten mantener y mejorar el resultado.</p></details>
     </div>
   </div>
 </section>
@@ -535,169 +534,96 @@ footer.site a{color:var(--ink-soft)}
 
 <footer class="site">
   <div class="wrap">
-    <div><strong style="font-family:var(--display);font-size:1.2rem;letter-spacing:.06em;color:var(--ink)">KARITÉ</strong><br>Cosmética natural · Calle del Valle de Zuriza, 25 · 50014 Zaragoza</div>
-    <div>Aviso legal · Privacidad · Cookies<br>© <span id="year">2026</span> Karité</div>
+    <a class="logo" href="#inicio"><img src="img/logo.png" alt=""><span><b>Karité</b><small>Estética avanzada</small></span></a>
+    <div>Calle del Valle de Zuriza, 25 · 50014 Zaragoza · WhatsApp 614 531 830<br><a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener">Instagram</a> · Aviso legal · Privacidad · Cookies · © <span id="year">2026</span> Karité</div>
   </div>
 </footer>
 
-<a class="wa-float js-wa" data-msg="¡Hola Karité! Tengo una consulta:" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+<a class="wa-float js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener" aria-label="Pedir cita por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
 </a>
 
 <script>
-/* ===== DATOS DE LA TIENDA: cambia aquí cuando los confirmes con la dueña ===== */
-const TIENDA = {
-  whatsapp: "34600000000",          // número con prefijo 34, sin espacios (EJEMPLO)
-  telefono: "600 00 00 00 (pendiente de confirmar)",
+/* ===== DATOS DEL CENTRO: edita aquí ===== */
+const CENTRO = {
+  whatsapp: "34614531830",                 // real (bio de Facebook)
+  telefonoVisible: "614 531 830",
   direccion: "Calle del Valle de Zuriza, 25, 50014 Zaragoza",
-  // 0 = domingo … 6 = sábado. Tramos [apertura, cierre] en HH:MM (EJEMPLO)
+  // 0 = domingo … 6 = sábado. Tramos [apertura, cierre]. EJEMPLO: confirmar con Karité
   horario: {
-    1: [["10:00","14:00"],["17:00","20:30"]],
-    2: [["10:00","14:00"],["17:00","20:30"]],
-    3: [["10:00","14:00"],["17:00","20:30"]],
-    4: [["10:00","14:00"],["17:00","20:30"]],
-    5: [["10:00","14:00"],["17:00","20:30"]],
+    1: [["10:00","14:00"],["16:00","20:30"]],
+    2: [["10:00","14:00"],["16:00","20:30"]],
+    3: [["10:00","14:00"],["16:00","20:30"]],
+    4: [["10:00","14:00"],["16:00","20:30"]],
+    5: [["10:00","14:00"],["16:00","20:30"]],
     6: [["10:00","14:00"]],
     0: []
   }
 };
 
-const PRODUCTOS = [
-  {n:"Manteca de karité pura", d:"Sin refinar. Para piel muy seca, labios, codos y puntas del pelo.", f:"Tarro 200 g", t:"Estrella", c:"var(--nut-soft)", i:"jar"},
-  {n:"Aceite de rosa mosqueta", d:"Regenerador para cicatrices, estrías y manchas. Prensado en frío.", f:"Gotero 30 ml", t:"Facial", c:"color-mix(in srgb, #C9727A 22%, var(--surface))", i:"drop"},
-  {n:"Champú sólido de ortiga", d:"Para cabello graso. Dura como tres botes de champú líquido.", f:"Pastilla 80 g", t:"Sin plástico", c:"color-mix(in srgb, var(--accent) 18%, var(--surface))", i:"bar"},
-  {n:"Jabón de avena y caléndula", d:"Hecho en frío. Apto para pieles atópicas y para toda la familia.", f:"Pastilla 100 g", t:"Piel sensible", c:"color-mix(in srgb, #D8B75C 22%, var(--surface))", i:"bar"},
-  {n:"Bálsamo labial de karité", d:"Repara labios cortados en uno o dos días. Con cera de abeja.", f:"Stick 5 g", t:"Básico", c:"color-mix(in srgb, #C88B5A 20%, var(--surface))", i:"stick"},
-  {n:"Bruma de lavanda", d:"Para almohada y ambiente. Ayuda a desconectar antes de dormir.", f:"Spray 100 ml", t:"Aromaterapia", c:"color-mix(in srgb, #8C7BB8 20%, var(--surface))", i:"spray"}
-];
-
-const ICONOS = {
-  jar:'<rect x="14" y="10" width="36" height="10" rx="3" fill="var(--nut)"/><rect x="10" y="19" width="44" height="36" rx="10" fill="var(--surface)" stroke="var(--nut)" stroke-width="2"/>',
-  drop:'<rect x="26" y="4" width="12" height="12" rx="2" fill="var(--ink-soft)"/><rect x="18" y="16" width="28" height="42" rx="8" fill="var(--surface)" stroke="#C9727A" stroke-width="2"/>',
-  bar:'<rect x="8" y="20" width="48" height="26" rx="12" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/><path d="M20 33h24" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>',
-  stick:'<rect x="24" y="4" width="16" height="18" rx="7" fill="#C88B5A"/><rect x="22" y="20" width="20" height="38" rx="3" fill="var(--surface)" stroke="#C88B5A" stroke-width="2"/>',
-  spray:'<rect x="26" y="4" width="12" height="8" rx="2" fill="var(--ink-soft)"/><rect x="28" y="12" width="8" height="6" fill="var(--ink-soft)"/><rect x="18" y="18" width="28" height="40" rx="6" fill="var(--surface)" stroke="#8C7BB8" stroke-width="2"/>'
-};
-
-const waLink = msg => "https://wa.me/" + TIENDA.whatsapp + "?text=" + encodeURIComponent(msg);
-const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Karité, " + TIENDA.direccion);
-
-/* Productos */
-document.getElementById("products").innerHTML = PRODUCTOS.map(p => `
-  <article class="product">
-    <div class="swatch" style="background:${p.c}">
-      <span class="tag">${p.t}</span>
-      <svg viewBox="0 0 64 64" aria-hidden="true">${ICONOS[p.i]}</svg>
-    </div>
-    <div class="body">
-      <h3>${p.n}</h3>
-      <span class="fmt">${p.f}</span>
-      <p>${p.d}</p>
-      <div class="row">
-        <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Quiero reservar: ${p.n} (${p.f}). ¿Lo tenéis disponible?" href="#" target="_blank" rel="noopener">Reservar</a>
-      </div>
-    </div>
-  </article>`).join("");
-
+const waLink = msg => "https://wa.me/" + CENTRO.whatsapp + "?text=" + encodeURIComponent(msg);
+const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Karité Estética Avanzada, " + CENTRO.direccion);
 document.querySelectorAll(".js-wa").forEach(a => a.href = waLink(a.dataset.msg));
 document.querySelectorAll(".js-maps").forEach(a => a.href = mapsLink);
-document.getElementById("phone-text").textContent = TIENDA.telefono;
+document.getElementById("phone-text").textContent = CENTRO.telefonoVisible;
 document.getElementById("year").textContent = new Date().getFullYear();
 
 /* Horario + abierto ahora (hora de Madrid) */
 const DIAS = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-function ahoraMadrid(){
-  const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Madrid",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
-  const get = t => parts.find(p => p.type === t).value;
-  const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday"));
-  return {day, min: (+get("hour") % 24) * 60 + +get("minute")};
-}
+const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Madrid",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+const get = t => parts.find(p => p.type === t).value;
+const now = {day:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday")), min:(+get("hour") % 24) * 60 + +get("minute")};
 const toMin = s => { const [h,m] = s.split(":").map(Number); return h*60+m; };
-const now = ahoraMadrid();
 
-const orden = [1,2,3,4,5,6,0];
-document.getElementById("hours").innerHTML = orden.map(d => {
-  const t = TIENDA.horario[d];
-  const txt = t.length ? t.map(r => r.join(" – ")).join(" · ") : "Cerrado";
-  return `<tr class="${d === now.day ? "today" : ""}"><td>${DIAS[d]}</td><td>${txt}</td></tr>`;
+document.getElementById("hours").innerHTML = [1,2,3,4,5,6,0].map(d => {
+  const t = CENTRO.horario[d];
+  return `<tr class="${d === now.day ? "today" : ""}"><td>${DIAS[d]}</td><td>${t.length ? t.map(r => r.join(" – ")).join(" · ") : "Cerrado"}</td></tr>`;
 }).join("");
 
-(function estado(){
+(function(){
   const el = document.getElementById("status"), txt = document.getElementById("status-text");
-  const hoy = TIENDA.horario[now.day];
+  const hoy = CENTRO.horario[now.day];
   const abierto = hoy.find(([a,c]) => now.min >= toMin(a) && now.min < toMin(c));
-  if (abierto){ el.classList.add("open"); txt.textContent = "Abierto ahora · cierra a las " + abierto[1]; return; }
+  if (abierto){ el.classList.add("open"); txt.textContent = "Abierto ahora · hasta las " + abierto[1]; return; }
   const luego = hoy.find(([a]) => toMin(a) > now.min);
-  if (luego){ txt.textContent = "Cerrado ahora · abrimos hoy a las " + luego[0]; return; }
+  if (luego){ txt.textContent = "Cerrado · abrimos hoy a las " + luego[0]; return; }
   for (let i = 1; i <= 7; i++){
     const d = (now.day + i) % 7;
-    if (TIENDA.horario[d].length){
-      txt.textContent = "Cerrado ahora · abrimos " + (i === 1 ? "mañana" : "el " + DIAS[d].toLowerCase()) + " a las " + TIENDA.horario[d][0][0];
-      return;
-    }
+    if (CENTRO.horario[d].length){ txt.textContent = "Cerrado · abrimos " + (i === 1 ? "mañana" : "el " + DIAS[d].toLowerCase()) + " a las " + CENTRO.horario[d][0][0]; return; }
   }
 })();
 
-/* Test de rutina */
-const PIEL = {
-  seca:{t:"Piel seca", limp:"Leche o aceite limpiador", limpD:"Limpia sin arrastrar la grasa natural de tu piel."},
-  mixta:{t:"Piel mixta", limp:"Gel suave de aloe", limpD:"Equilibra la zona T sin resecar las mejillas."},
-  grasa:{t:"Piel grasa", limp:"Jabón de arcilla verde", limpD:"Absorbe el exceso de sebo y limpia los poros."},
-  sensible:{t:"Piel sensible", limp:"Jabón de avena y caléndula", limpD:"Fórmula mínima que no irrita."}
+/* Test facial */
+const TRAT = {
+  luz:{t:"Peeling Probiome de Skeyndor", w:"Renueva la piel apagada y ayuda a unificar el tono y atenuar las manchas que deja el sol.", l:["Renovación celular suave","Más luminosidad desde la primera sesión","Tono más uniforme"]},
+  hidra:{t:"Hidratación profunda con ácido hialurónico", w:"Devuelve el agua que la piel ha perdido y calma la sensación de tirantez.", l:["Piel más jugosa y elástica","Alivia la tirantez","Ideal después del sol o del frío"]},
+  arrugas:{t:"Exosomas + terapia infrarroja", w:"Estimula los procesos naturales de reparación de la piel, con más colágeno y elastina.", l:["Regeneración cutánea profunda","Estimula colágeno y elastina","Mejora la firmeza y las líneas"]},
+  poros:{t:"Higiene facial profunda", w:"Limpia en profundidad, extrae impurezas y deja el poro más cerrado.", l:["Limpieza y extracción de impurezas","Poro visiblemente más fino","Piel más equilibrada"]}
 };
-const OBJ = {
-  hidratar:{t:"que pide hidratación", s:"Sérum de ácido hialurónico", sD:"Retiene el agua en la piel durante todo el día."},
-  luz:{t:"que busca luminosidad", s:"Aceite de rosa mosqueta", sD:"Unifica el tono y atenúa manchas con constancia."},
-  calmar:{t:"que necesita calma", s:"Sérum de centella y manzanilla", sD:"Reduce rojeces y tirantez en pocos días."},
-  edad:{t:"que quiere prevenir líneas", s:"Sérum de bakuchiol", sD:"Alternativa natural al retinol, apta para el día."}
-};
-const FMT = {
-  ligero:{h:"Crema-gel hidratante", hD:"Se absorbe al momento, sin sensación pegajosa."},
-  rico:{h:"Crema nutritiva con karité", hD:"Textura untuosa que protege la barrera de la piel."},
-  solido:{h:"Barra hidratante sólida de karité", hD:"Cero plástico y dura meses."}
-};
+const TIPO = {normal:"piel normal o mixta", seca:"piel seca", grasa:"piel grasa", sensible:"piel sensible"};
 const quiz = document.getElementById("quiz");
-function pintarRutina(){
+function pintar(){
   const v = Object.fromEntries(new FormData(quiz));
-  const p = PIEL[v.piel], o = OBJ[v.objetivo], f = FMT[v.formato];
-  document.getElementById("r-title").textContent = p.t + " " + o.t;
-  document.getElementById("r-steps").innerHTML = [
-    [p.limp, p.limpD], [o.s, o.sD], [f.h, f.hD]
-  ].map(([b,s]) => `<li><div><b>${b}</b><small>${s}</small></div></li>`).join("");
-  document.getElementById("r-wa").href = waLink(
-    `¡Hola Karité! He hecho el test de la web: ${p.t.toLowerCase()} ${o.t}, prefiero ${v.formato === "solido" ? "productos sólidos" : "texturas " + (v.formato === "rico" ? "ricas" : "ligeras")}. ¿Me preparáis la rutina para probarla en tienda?`
-  );
+  const r = TRAT[v.p];
+  const bono = v.f === "bono";
+  document.getElementById("r-title").textContent = bono ? "Bono Radiante con " + r.t.charAt(0).toLowerCase() + r.t.slice(1) : r.t;
+  document.getElementById("r-why").textContent = r.w + (v.t === "sensible" ? " Adaptamos la intensidad a tu piel sensible." : "");
+  document.getElementById("r-list").innerHTML = ["Estudio de tu piel incluido", ...r.l, ...(bono ? ["4 sesiones con seguimiento + peelings de regalo"] : [])].map(x => `<li>${x}</li>`).join("");
+  document.getElementById("r-wa").href = waLink(`¡Hola Karité! He hecho el test de la web (${TIPO[v.t]}). Me interesa: ${bono ? "Bono Radiante con " : ""}${r.t}. ¿Qué huecos tenéis?`);
 }
-quiz.addEventListener("change", pintarRutina);
-pintarRutina();
+quiz.addEventListener("change", pintar);
+pintar();
 
-/* Copiar dirección */
 document.getElementById("copy-addr").addEventListener("click", e => {
   const b = e.currentTarget;
-  const done = () => { b.textContent = "Dirección copiada"; setTimeout(() => b.textContent = "Copiar dirección", 2000); };
-  if (navigator.clipboard) navigator.clipboard.writeText(TIENDA.direccion).then(done, () => {
-    const r = document.createRange(); r.selectNodeContents(document.getElementById("addr"));
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-  });
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("addr")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  if (!navigator.clipboard) return sel();
+  navigator.clipboard.writeText(CENTRO.direccion).then(() => { b.textContent = "Dirección copiada"; setTimeout(() => b.textContent = "Copiar dirección", 2000); }, sel);
 });
 
-/* Club */
-document.getElementById("club-form").addEventListener("submit", e => {
-  e.preventDefault();
-  const input = document.getElementById("club-email"), ok = document.getElementById("club-ok");
-  ok.hidden = false;
-  if (!input.checkValidity() || !input.value){ ok.textContent = "Escribe un correo válido, por ejemplo nombre@correo.com."; return; }
-  ok.textContent = "¡Bienvenida al Club Karité! Enséñanos este mensaje en tienda para tu 10% de descuento.";
-  input.value = "";
-});
-
-/* Aviso de demo */
 const ribbon = document.getElementById("ribbon");
 try { if (localStorage.getItem("karite-ribbon") === "0") ribbon.hidden = true; } catch(e){}
-document.getElementById("ribbon-close").addEventListener("click", () => {
-  ribbon.hidden = true;
-  try { localStorage.setItem("karite-ribbon","0"); } catch(e){}
-});
+document.getElementById("ribbon-close").addEventListener("click", () => { ribbon.hidden = true; try { localStorage.setItem("karite-ribbon","0"); } catch(e){} });
 </script>
 </body>
 </html>
