@@ -207,13 +207,12 @@ nav.main a:hover::after{right:0}
 @media (max-width:860px){.bono-grid{grid-template-columns:1fr}.bono-media{padding-block:40px}.bono-media::before{inset:0 -20px}.bono-panel{margin-inline:auto}.bono-text{padding:40px 0}}
 
 /* opiniones */
-.carousel{position:relative}
-.track{--card:min(380px,72vw);display:flex;gap:28px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:24px calc(50% - var(--card)/2) 40px;scrollbar-width:none;cursor:grab;perspective:1200px;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);user-select:none;-webkit-user-select:none}
-.track::-webkit-scrollbar{display:none}
-.track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
-.track:focus-visible{outline:2px solid var(--taupe);outline-offset:-2px}
-.slot{flex:0 0 var(--card);scroll-snap-align:center}
-.slot .review{height:100%;transform:rotateY(var(--ry,0deg)) scale(var(--sc,1));opacity:var(--op,1);will-change:transform,opacity;box-shadow:0 30px 50px -40px rgba(60,40,30,calc(var(--sh,0) * .8))}
+.carousel{position:relative;overflow:hidden;overflow:clip;padding-top:4px}
+.track{--card:min(380px,72vw);position:relative;height:var(--h,300px);margin-block:28px 44px;perspective:1400px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);transition:opacity .6s}
+.track.dragging{cursor:grabbing}
+.track:focus-visible{outline:2px solid var(--taupe);outline-offset:4px}
+.slot{position:absolute;top:0;left:50%;width:var(--card);margin-left:calc(var(--card) / -2);height:100%;will-change:transform,opacity}
+.slot .review{height:100%;box-shadow:0 30px 50px -40px rgba(60,40,30,calc(var(--sh,0) * .8))}
 .car-nav{display:flex;align-items:center;justify-content:center;gap:18px}
 .car-btn{width:44px;height:44px;border:1px solid var(--taupe);background:transparent;color:var(--taupe);display:grid;place-items:center;cursor:pointer;transition:background .25s,color .25s}
 .car-btn:hover{background:var(--taupe);color:var(--white)}
@@ -222,9 +221,8 @@ nav.main a:hover::after{right:0}
 .dots button{width:8px;height:8px;padding:0;border:0;border-radius:8px;background:var(--line);cursor:pointer;transition:width .35s cubic-bezier(.2,.7,.2,1),background .35s}
 .dots button.on{width:26px;background:var(--taupe)}
 .car-hint{text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:14px}
-@keyframes slideFromRight{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
-.carousel.pre .slot{opacity:0}
-.carousel.in .slot{animation:slideFromRight 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 110ms)}
+.carousel.pre .track{opacity:0}
+@media (max-width:600px){.track{--card:64vw;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%)}}
 .review{margin:0;padding:30px 26px;border:1px solid var(--line);background:var(--white);position:relative}
 .review::before{content:"“";position:absolute;top:6px;right:18px;font:400 4rem/1 Georgia,serif;color:var(--nude)}
 .review .stars{color:var(--taupe);letter-spacing:3px;font-size:.85rem}
@@ -664,68 +662,102 @@ box.addEventListener("click", e => {
 });
 render(false);
 
-/* Carrusel de opiniones: arrastrar, deslizar, flechas y puntos */
+/* Carrusel circular de opiniones: se mueve solo, se arrastra con ratón, dedo o panel táctil y conserva el impulso */
 (function(){
   const car = document.getElementById("carousel"), track = document.getElementById("track");
-  const slots = [...track.querySelectorAll(".slot")], dots = document.getElementById("dots");
-  slots.forEach((s, i) => { s.style.setProperty("--i", i); const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Ver opinión " + (i + 1)); b.onclick = () => ir(i); dots.appendChild(b); });
+  const slots = [...track.querySelectorAll(".slot")], n = slots.length, dots = document.getElementById("dots");
+  const GAP = 28, VEL_AUTO = REDUCE ? 0 : 0.16;          // tarjetas por segundo
+  let unit = 400, pos = 0, vel = 0, objetivo = null, auto = 0, pausaHasta = 0, encima = false, arrastrando = false, visible = false, raf = 0, ultimo = 0;
+  slots.forEach((_, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Ver opinión " + (i + 1)); b.onclick = () => irA(i); dots.appendChild(b); });
   const puntos = [...dots.children];
-  let actual = -1;
-  const centro = el => el.offsetLeft + el.offsetWidth / 2;
-  function ir(i){ i = Math.max(0, Math.min(slots.length - 1, i)); track.scrollTo({left: centro(slots[i]) - track.clientWidth / 2, behavior: REDUCE ? "auto" : "smooth"}); }
-  function pintar(){
-    const mitad = track.scrollLeft + track.clientWidth / 2;
-    let mejor = 0, dmin = Infinity;
-    slots.forEach((s, i) => {
-      const d = (centro(s) - mitad) / s.offsetWidth;
-      if (Math.abs(d) < dmin){ dmin = Math.abs(d); mejor = i; }
-      if (REDUCE) return;
-      const a = Math.min(Math.abs(d), 1.6);
-      const r = s.firstElementChild.style;
-      r.setProperty("--ry", (Math.max(-1, Math.min(1, d)) * -14).toFixed(2) + "deg");
-      r.setProperty("--sc", (1 - a * .12).toFixed(3));
-      r.setProperty("--op", (1 - a * .45).toFixed(3));
-      r.setProperty("--sh", (1 - Math.min(a, 1)).toFixed(2));
-    });
-    if (mejor !== actual){ actual = mejor; puntos.forEach((p, i) => p.classList.toggle("on", i === mejor)); }
-  }
-  let rafP = 0;
-  track.addEventListener("scroll", () => { if (!rafP) rafP = requestAnimationFrame(() => { rafP = 0; pintar(); }); }, {passive:true});
-  addEventListener("resize", pintar);
-  document.getElementById("car-prev").onclick = () => ir(actual - 1);
-  document.getElementById("car-next").onclick = () => ir(actual + 1);
-  track.addEventListener("keydown", e => { if (e.key === "ArrowRight"){ e.preventDefault(); ir(actual + 1); } if (e.key === "ArrowLeft"){ e.preventDefault(); ir(actual - 1); } });
+  const envolver = d => { d = ((d % n) + n) % n; return d >= n / 2 ? d - n : d; };
 
-  /* Arrastrar con el ratón (el táctil y el panel táctil ya deslizan de forma nativa) */
-  let x0 = 0, s0 = 0, arrastrando = false, movido = 0, vel = 0, tAnt = 0, xAnt = 0;
+  function medir(){
+    unit = slots[0].offsetWidth + GAP;
+    track.style.setProperty("--h", "auto");
+    let h = 0; slots.forEach(s => { s.style.height = "auto"; h = Math.max(h, s.offsetHeight); s.style.height = ""; });
+    track.style.setProperty("--h", h + "px");
+  }
+  function pintar(){
+    slots.forEach((s, i) => {
+      const d = envolver(i - pos), a = Math.min(Math.abs(d), 2.4);
+      const rot = Math.max(-1.5, Math.min(1.5, d)) * -12;
+      s.style.transform = `translateX(${(d * unit).toFixed(1)}px) rotateY(${rot.toFixed(2)}deg) scale(${(1 - a * .1).toFixed(3)})`;
+      s.style.opacity = Math.max(0, 1 - a * .36).toFixed(3);
+      s.style.zIndex = 100 - Math.round(a * 10);
+      s.firstElementChild.style.setProperty("--sh", Math.max(0, 1 - a).toFixed(2));
+    });
+    const act = ((Math.round(pos) % n) + n) % n;
+    puntos.forEach((p, i) => p.classList.toggle("on", i === act));
+  }
+  function paso(t){
+    const dt = Math.min(.05, (t - (ultimo || t)) / 1000); ultimo = t;
+    if (!arrastrando){
+      if (objetivo !== null){
+        pos += (objetivo - pos) * Math.min(1, dt * 5);
+        if (Math.abs(objetivo - pos) < .002){ pos = objetivo; objetivo = null; }
+      } else if (Math.abs(vel) > .01){
+        pos += vel * dt; vel *= Math.pow(.04, dt);          // inercia que se frena poco a poco
+      }
+      const quiere = (encima || objetivo !== null || Math.abs(vel) > .05 || t < pausaHasta) ? 0 : VEL_AUTO;
+      auto += (quiere - auto) * Math.min(1, dt * 1.5);      // arranca y frena suave
+      pos += auto * dt;
+    }
+    pintar();
+    raf = visible && !document.hidden ? requestAnimationFrame(paso) : 0;
+  }
+  const arrancar = () => { if (!raf && visible){ ultimo = 0; raf = requestAnimationFrame(paso); } };
+  const pausar = ms => { pausaHasta = performance.now() + ms; };
+  function mover(k){ objetivo = Math.round(objetivo ?? pos) + k; vel = 0; pausar(2500); arrancar(); }
+  function irA(i){ objetivo = pos + envolver(i - pos); vel = 0; pausar(2500); arrancar(); }
+
+  document.getElementById("car-prev").onclick = () => mover(-1);
+  document.getElementById("car-next").onclick = () => mover(1);
+  track.addEventListener("keydown", e => { if (e.key === "ArrowRight"){ e.preventDefault(); mover(1); } if (e.key === "ArrowLeft"){ e.preventDefault(); mover(-1); } });
+  track.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") encima = true; });
+  track.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") encima = false; });
+
+  /* Arrastrar (ratón, dedo o lápiz) */
+  let x0 = 0, p0 = 0, xAnt = 0, tAnt = 0, v = 0, movido = 0;
   track.addEventListener("pointerdown", e => {
-    if (e.pointerType !== "mouse" || e.button !== 0) return;
-    arrastrando = true; movido = 0; x0 = xAnt = e.clientX; s0 = track.scrollLeft; tAnt = performance.now(); vel = 0;
-    track.classList.add("dragging"); track.setPointerCapture(e.pointerId);
+    if (e.button !== 0) return;
+    arrastrando = true; objetivo = null; vel = 0; movido = 0; v = 0;
+    x0 = xAnt = e.clientX; p0 = pos; tAnt = performance.now();
+    track.classList.add("dragging"); track.setPointerCapture(e.pointerId); arrancar();
   });
   track.addEventListener("pointermove", e => {
     if (!arrastrando) return;
-    const dx = e.clientX - x0; movido = Math.max(movido, Math.abs(dx));
-    track.scrollLeft = s0 - dx;
-    const t = performance.now(); vel = (e.clientX - xAnt) / Math.max(1, t - tAnt); xAnt = e.clientX; tAnt = t;
+    movido = Math.max(movido, Math.abs(e.clientX - x0));
+    pos = p0 - (e.clientX - x0) / unit;
+    const t = performance.now(), dt = Math.max(1, t - tAnt) / 1000;
+    v = v * .6 + (-(e.clientX - xAnt) / unit / dt) * .4; xAnt = e.clientX; tAnt = t;
   });
   const soltar = () => {
     if (!arrastrando) return; arrastrando = false; track.classList.remove("dragging");
-    const empuje = vel < -0.35 ? 1 : vel > 0.35 ? -1 : 0;
-    const mitad = track.scrollLeft + track.clientWidth / 2;
-    let i = slots.reduce((m, s, k) => Math.abs(centro(s) - mitad) < Math.abs(centro(slots[m]) - mitad) ? k : m, 0);
-    ir(movido > 30 && empuje ? actual + empuje : i);
+    if (performance.now() - tAnt > 120) v = 0;             // si se quedó quieto antes de soltar, sin impulso
+    vel = Math.max(-6, Math.min(6, v)); pausar(1800);
   };
   track.addEventListener("pointerup", soltar); track.addEventListener("pointercancel", soltar);
   track.addEventListener("click", e => { if (movido > 5){ e.preventDefault(); e.stopPropagation(); } }, true);
 
-  /* Empieza en la primera opinión y entra deslizando desde la derecha al llegar */
-  requestAnimationFrame(() => { track.style.scrollBehavior = "auto"; track.scrollLeft = centro(slots[0]) - track.clientWidth / 2; track.style.scrollBehavior = ""; pintar(); });
-  if (!REDUCE && "IntersectionObserver" in window && car.getBoundingClientRect().top > innerHeight){
-    car.classList.add("pre");
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting){ car.classList.replace("pre", "in"); io.disconnect(); } }, {threshold:.25});
-    io.observe(car);
-  }
+  /* Panel táctil: deslizar con dos dedos en horizontal */
+  track.addEventListener("wheel", e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault(); objetivo = null; vel = 0; pos += e.deltaX / unit; pausar(1500); arrancar();
+  }, {passive:false});
+
+  medir(); pintar();
+  addEventListener("resize", () => { medir(); pintar(); });
+  document.addEventListener("visibilitychange", arrancar);
+
+  /* Solo se anima cuando está a la vista; al aparecer, las tarjetas entran desde la derecha */
+  const entrada = !REDUCE && car.getBoundingClientRect().top > innerHeight;
+  if (entrada){ car.classList.add("pre"); pos = -2.6; pintar(); }
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (visible && car.classList.contains("pre")){ car.classList.remove("pre"); objetivo = 0; pausar(1200); }
+    arrancar();
+  }).observe(track);
 })();
 
 /* Aparición al hacer scroll (solo lo que está por debajo de la primera pantalla) */
