@@ -207,14 +207,30 @@ nav.main a:hover::after{right:0}
 @media (max-width:860px){.bono-grid{grid-template-columns:1fr}.bono-media{padding-block:40px}.bono-media::before{inset:0 -20px}.bono-panel{margin-inline:auto}.bono-text{padding:40px 0}}
 
 /* opiniones */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.carousel{position:relative}
+.track{--card:min(380px,72vw);display:flex;gap:28px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:24px calc(50% - var(--card)/2) 40px;scrollbar-width:none;cursor:grab;perspective:1200px;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);user-select:none;-webkit-user-select:none}
+.track::-webkit-scrollbar{display:none}
+.track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.track:focus-visible{outline:2px solid var(--taupe);outline-offset:-2px}
+.slot{flex:0 0 var(--card);scroll-snap-align:center}
+.slot .review{height:100%;transform:rotateY(var(--ry,0deg)) scale(var(--sc,1));opacity:var(--op,1);will-change:transform,opacity;box-shadow:0 30px 50px -40px rgba(60,40,30,calc(var(--sh,0) * .8))}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:18px}
+.car-btn{width:44px;height:44px;border:1px solid var(--taupe);background:transparent;color:var(--taupe);display:grid;place-items:center;cursor:pointer;transition:background .25s,color .25s}
+.car-btn:hover{background:var(--taupe);color:var(--white)}
+.car-btn svg{width:12px;height:12px}
+.dots{display:flex;gap:8px}
+.dots button{width:8px;height:8px;padding:0;border:0;border-radius:8px;background:var(--line);cursor:pointer;transition:width .35s cubic-bezier(.2,.7,.2,1),background .35s}
+.dots button.on{width:26px;background:var(--taupe)}
+.car-hint{text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+@keyframes slideFromRight{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
+.carousel.pre .slot{opacity:0}
+.carousel.in .slot{animation:slideFromRight 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 110ms)}
 .review{margin:0;padding:30px 26px;border:1px solid var(--line);background:var(--white);position:relative}
 .review::before{content:"“";position:absolute;top:6px;right:18px;font:400 4rem/1 Georgia,serif;color:var(--nude)}
 .review .stars{color:var(--taupe);letter-spacing:3px;font-size:.85rem}
 .review p{margin-top:10px}
 .review footer{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-top:14px;font-weight:500}
 .sample{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
-@media (max-width:860px){.reviews{grid-template-columns:1fr}}
 
 /* visita */
 .final{background:var(--nude)}
@@ -266,7 +282,7 @@ footer.site a{color:#EDE3DA}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-.t-card.reveal, .review.reveal, .checks li.reveal{transition-delay:calc(var(--i,0) * 120ms)}
+.t-card.reveal, .checks li.reveal{transition-delay:calc(var(--i,0) * 120ms)}
 .reveal.in .gift svg{animation:wiggle .7s .7s ease-in-out}
 .bono-media.reveal::before{transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.65,0,.35,1)}
 .bono-media.reveal.in::before{transform:none}
@@ -451,11 +467,22 @@ footer.site a{color:#EDE3DA}
 <section id="opiniones">
   <div class="wrap">
     <div class="sec-head center"><span class="sample">Opiniones de ejemplo · aquí irán vuestras reseñas reales de Google</span><h2>Lo que dicen nuestras clientas</h2></div>
-    <div class="reviews">
-      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Hice el Bono Radiante después del verano y mi piel ha recuperado la luz. Te explican todo lo que te hacen.</p><footer>Clienta del Actur</footer></blockquote>
-      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>El lifting de pestañas me dura semanas y la manicura, perfecta. Un sitio muy cuidado.</p><footer>Clienta del Arrabal</footer></blockquote>
-      <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Voy a presoterapia y noto las piernas mucho más ligeras. Trato cercano y profesional.</p><footer>Clienta de Parque Goya</footer></blockquote>
+  </div>
+  <div class="carousel" id="carousel">
+    <div class="track" id="track" tabindex="0" role="region" aria-label="Opiniones de clientas. Desliza para ver más.">
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Hice el Bono Radiante después del verano y mi piel ha recuperado la luz. Te explican todo lo que te hacen.</p><footer>Clienta del Actur</footer></blockquote></div>
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>El lifting de pestañas me dura semanas y la manicura, perfecta. Un sitio muy cuidado.</p><footer>Clienta del Arrabal</footer></blockquote></div>
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Voy a presoterapia y noto las piernas mucho más ligeras. Trato cercano y profesional.</p><footer>Clienta de Parque Goya</footer></blockquote></div>
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Me hicieron un estudio de la piel antes de nada y por fin sé qué productos usar en casa.</p><footer>Clienta de Valdefierro</footer></blockquote></div>
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>La terapia infrarroja es una maravilla, salgo con la cara descansada y luminosa.</p><footer>Clienta del Actur</footer></blockquote></div>
+        <div class="slot"><blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Depilación rápida y sin agobios. Se nota que les gusta lo que hacen.</p><footer>Clienta de Ciudad Jardín</footer></blockquote></div>
     </div>
+    <div class="car-nav">
+      <button type="button" class="car-btn" id="car-prev" aria-label="Opinión anterior"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg></button>
+      <div class="dots" id="dots"></div>
+      <button type="button" class="car-btn" id="car-next" aria-label="Opinión siguiente"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 1.5 7 5 3.5 8.5"/></svg></button>
+    </div>
+    <p class="car-hint">Desliza para ver más opiniones</p>
   </div>
 </section>
 
@@ -637,13 +664,77 @@ box.addEventListener("click", e => {
 });
 render(false);
 
+/* Carrusel de opiniones: arrastrar, deslizar, flechas y puntos */
+(function(){
+  const car = document.getElementById("carousel"), track = document.getElementById("track");
+  const slots = [...track.querySelectorAll(".slot")], dots = document.getElementById("dots");
+  slots.forEach((s, i) => { s.style.setProperty("--i", i); const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Ver opinión " + (i + 1)); b.onclick = () => ir(i); dots.appendChild(b); });
+  const puntos = [...dots.children];
+  let actual = -1;
+  const centro = el => el.offsetLeft + el.offsetWidth / 2;
+  function ir(i){ i = Math.max(0, Math.min(slots.length - 1, i)); track.scrollTo({left: centro(slots[i]) - track.clientWidth / 2, behavior: REDUCE ? "auto" : "smooth"}); }
+  function pintar(){
+    const mitad = track.scrollLeft + track.clientWidth / 2;
+    let mejor = 0, dmin = Infinity;
+    slots.forEach((s, i) => {
+      const d = (centro(s) - mitad) / s.offsetWidth;
+      if (Math.abs(d) < dmin){ dmin = Math.abs(d); mejor = i; }
+      if (REDUCE) return;
+      const a = Math.min(Math.abs(d), 1.6);
+      const r = s.firstElementChild.style;
+      r.setProperty("--ry", (Math.max(-1, Math.min(1, d)) * -14).toFixed(2) + "deg");
+      r.setProperty("--sc", (1 - a * .12).toFixed(3));
+      r.setProperty("--op", (1 - a * .45).toFixed(3));
+      r.setProperty("--sh", (1 - Math.min(a, 1)).toFixed(2));
+    });
+    if (mejor !== actual){ actual = mejor; puntos.forEach((p, i) => p.classList.toggle("on", i === mejor)); }
+  }
+  let rafP = 0;
+  track.addEventListener("scroll", () => { if (!rafP) rafP = requestAnimationFrame(() => { rafP = 0; pintar(); }); }, {passive:true});
+  addEventListener("resize", pintar);
+  document.getElementById("car-prev").onclick = () => ir(actual - 1);
+  document.getElementById("car-next").onclick = () => ir(actual + 1);
+  track.addEventListener("keydown", e => { if (e.key === "ArrowRight"){ e.preventDefault(); ir(actual + 1); } if (e.key === "ArrowLeft"){ e.preventDefault(); ir(actual - 1); } });
+
+  /* Arrastrar con el ratón (el táctil y el panel táctil ya deslizan de forma nativa) */
+  let x0 = 0, s0 = 0, arrastrando = false, movido = 0, vel = 0, tAnt = 0, xAnt = 0;
+  track.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    arrastrando = true; movido = 0; x0 = xAnt = e.clientX; s0 = track.scrollLeft; tAnt = performance.now(); vel = 0;
+    track.classList.add("dragging"); track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener("pointermove", e => {
+    if (!arrastrando) return;
+    const dx = e.clientX - x0; movido = Math.max(movido, Math.abs(dx));
+    track.scrollLeft = s0 - dx;
+    const t = performance.now(); vel = (e.clientX - xAnt) / Math.max(1, t - tAnt); xAnt = e.clientX; tAnt = t;
+  });
+  const soltar = () => {
+    if (!arrastrando) return; arrastrando = false; track.classList.remove("dragging");
+    const empuje = vel < -0.35 ? 1 : vel > 0.35 ? -1 : 0;
+    const mitad = track.scrollLeft + track.clientWidth / 2;
+    let i = slots.reduce((m, s, k) => Math.abs(centro(s) - mitad) < Math.abs(centro(slots[m]) - mitad) ? k : m, 0);
+    ir(movido > 30 && empuje ? actual + empuje : i);
+  };
+  track.addEventListener("pointerup", soltar); track.addEventListener("pointercancel", soltar);
+  track.addEventListener("click", e => { if (movido > 5){ e.preventDefault(); e.stopPropagation(); } }, true);
+
+  /* Empieza en la primera opinión y entra deslizando desde la derecha al llegar */
+  requestAnimationFrame(() => { track.style.scrollBehavior = "auto"; track.scrollLeft = centro(slots[0]) - track.clientWidth / 2; track.style.scrollBehavior = ""; pintar(); });
+  if (!REDUCE && "IntersectionObserver" in window && car.getBoundingClientRect().top > innerHeight){
+    car.classList.add("pre");
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting){ car.classList.replace("pre", "in"); io.disconnect(); } }, {threshold:.25});
+    io.observe(car);
+  }
+})();
+
 /* Aparición al hacer scroll (solo lo que está por debajo de la primera pantalla) */
 if (!REDUCE && "IntersectionObserver" in window){
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
-  const objetivos = [".brands .wrap", ".quiz-card > div:first-child", ".quiz-panel", ".sec-head", ".t-card", ".bono-media", ".bono-text", ".checks li", ".review", ".facade", ".final-grid > div:last-child"];
+  const objetivos = [".brands .wrap", ".quiz-card > div:first-child", ".quiz-panel", ".sec-head", ".t-card", ".bono-media", ".bono-text", ".checks li", ".facade", ".final-grid > div:last-child"];
   document.querySelectorAll(objetivos.join(",")).forEach(el => {
     if (el.getBoundingClientRect().top < innerHeight) return;
-    const hermanos = [...el.parentElement.children].filter(x => x.matches(".t-card, .review, .checks li"));
+    const hermanos = [...el.parentElement.children].filter(x => x.matches(".t-card, .checks li"));
     el.style.setProperty("--i", Math.max(0, hermanos.indexOf(el)));
     el.classList.add("reveal");
     io.observe(el);
