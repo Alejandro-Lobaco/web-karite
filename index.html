@@ -246,6 +246,37 @@ table.hours{border-collapse:collapse;font-variant-numeric:tabular-nums;margin-to
 table.hours td{padding:3px 18px 3px 0;color:var(--muted)}
 .pending{font-size:.78rem;color:var(--off)}
 .final .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.place{display:grid;gap:14px}
+.minimap{position:relative;display:block;width:100%;height:170px;padding:0;border:1px solid var(--line);background:var(--cream);cursor:pointer;overflow:hidden;text-align:left;font:inherit;color:var(--ink)}
+.minimap .map-art{position:absolute;inset:0 0 50px 0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.minimap:hover .map-art{transform:scale(1.06)}
+.minimap-bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);font-size:.85rem}
+.minimap-bar b{display:block;font-weight:500}
+.minimap-bar small{color:var(--muted);font-size:.75rem}
+.minimap .expand{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);font-weight:500;white-space:nowrap}
+.minimap .expand svg{width:14px;height:14px;transition:transform .3s}
+.minimap:hover .expand svg{transform:scale(1.2)}
+.map-art svg{width:100%;height:100%;display:block}
+.map-art .pin-pulse{transform-origin:center;transform-box:fill-box;animation:pinpulse 2.2s ease-out infinite}
+@keyframes pinpulse{0%{transform:scale(.4);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+.mapdlg[hidden]{display:none}
+.mapdlg{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px))}
+.mapdlg-backdrop{position:absolute;inset:0;background:rgba(43,38,34,.55);backdrop-filter:blur(4px);opacity:0;transition:opacity .45s}
+.mapdlg.open .mapdlg-backdrop{opacity:1}
+.mapdlg-panel{position:relative;width:min(1000px,100%);height:min(640px,100%);background:var(--white);display:grid;grid-template-rows:1fr auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform-origin:top left;overflow:hidden}
+.map-canvas{position:relative;background:var(--cream);min-height:0}
+.map-canvas .map-art{position:absolute;inset:0}
+.map-frame{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .5s}
+.map-frame.loaded{opacity:1}
+.mapdlg-info{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 24px;padding:18px 24px;border-top:1px solid var(--line)}
+.mapdlg-info p{margin-top:4px}
+.mapdlg-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.mapdlg-close{position:absolute;top:14px;right:14px;width:42px;height:42px;display:grid;place-items:center;background:var(--white);border:1px solid var(--line);color:var(--ink);cursor:pointer;z-index:2;transition:background .2s,color .2s}
+.mapdlg-close:hover{background:var(--taupe);color:var(--white);border-color:var(--taupe)}
+.mapdlg-close svg{width:14px;height:14px}
+.mapdlg-info, .mapdlg-close{transition:opacity .3s .25s}
+.mapdlg:not(.open) .mapdlg-info, .mapdlg:not(.open) .mapdlg-close{opacity:0;transition-delay:0s}
+body.map-open{overflow:hidden}
 @media (max-width:860px){.final-grid{grid-template-columns:1fr;gap:32px}}
 
 footer.site{background:var(--dark);color:#CFC3B9;padding-block:30px 110px;font-size:.84rem}
@@ -487,7 +518,13 @@ footer.site a{color:#EDE3DA}
 <!-- 7. Cierre: dónde + CTA final -->
 <section class="final" id="visitanos">
   <div class="wrap final-grid">
-    <div class="facade"><img src="img/fachada.jpg" alt="Fachada del centro Karité con jardín vertical en el escaparate" loading="lazy"><span>Busca el escaparate verde</span></div>
+    <div class="place">
+      <div class="facade"><img src="img/fachada.jpg" alt="Fachada del centro Karité con jardín vertical en el escaparate" loading="lazy"><span>Busca el escaparate verde</span></div>
+      <button type="button" class="minimap" id="minimap" aria-haspopup="dialog" aria-controls="mapdlg" aria-label="Ampliar el mapa de la ubicación de Karité">
+        <span class="map-art" data-map-art></span>
+        <span class="minimap-bar"><span><b>Calle del Valle de Zuriza, 25</b><small>50014 Zaragoza</small></span><span class="expand">Ampliar mapa <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg></span></span>
+      </button>
+    </div>
     <div>
       <span class="label">Te esperamos</span>
       <hr class="rule">
@@ -517,6 +554,24 @@ footer.site a{color:#EDE3DA}
     <span><a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener">Instagram @karitezaragoza</a> · Aviso legal · Privacidad · © <span id="year">2026</span></span>
   </div>
 </footer>
+
+<div class="mapdlg" id="mapdlg" role="dialog" aria-modal="true" aria-label="Mapa de la ubicación de Karité" hidden>
+  <div class="mapdlg-backdrop" data-close></div>
+  <div class="mapdlg-panel" id="mappanel">
+    <div class="map-canvas">
+      <span class="map-art" data-map-art></span>
+      <!--MAP-IFRAME--><iframe class="map-frame" data-src="https://maps.google.com/maps?q=Calle%20del%20Valle%20de%20Zuriza%2025%2C%2050014%20Zaragoza&amp;z=16&amp;output=embed" title="Mapa de Google con la ubicación de Karité" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><!--/MAP-IFRAME-->
+    </div>
+    <div class="mapdlg-info">
+      <div><span class="label">Karité Estética Avanzada</span><p>Calle del Valle de Zuriza, 25 · 50014 Zaragoza</p></div>
+      <div class="mapdlg-ctas">
+        <a class="btn btn-solid js-maps" href="#" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-line js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </div>
+    </div>
+    <button type="button" class="mapdlg-close" data-close aria-label="Cerrar el mapa"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  </div>
+</div>
 
 <div class="sticky-cta" id="sticky">
   <a class="btn btn-solid js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
@@ -662,6 +717,63 @@ box.addEventListener("click", e => {
 });
 render(false);
 
+/* Mapa: ilustración de marca en el mini mapa y mapa real de Google al ampliar */
+(function(){
+  const arte = `<svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect width="600" height="340" fill="#F4ECE5"/>
+    <g fill="#E9DCD1">${[[20,20,120,80],[160,20,150,80],[350,20,110,80],[500,20,90,80],[20,130,120,90],[350,130,110,90],[500,130,90,90],[20,250,120,80],[160,250,150,80],[350,250,110,80],[500,250,90,80]].map(([x,y,w,h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`).join("")}</g>
+    <rect x="160" y="130" width="150" height="90" fill="#DCE3D2"/>
+    <g stroke="#FFFFFF" stroke-linecap="round" fill="none">
+      <path d="M0 110h600M0 235h600M145 0v340M330 0v340M480 0v340" stroke-width="14"/>
+      <path d="M-20 330 620 -10" stroke-width="20"/>
+    </g>
+    <path d="M-20 330 620 -10" stroke="#EADFD5" stroke-width="2" stroke-dasharray="10 12" fill="none"/>
+    <g transform="translate(330 175)">
+      <circle class="pin-pulse" r="18" fill="#8A6A52"/>
+      <path d="M0-42c-13 0-23 10-23 23 0 17 23 37 23 37s23-20 23-37c0-13-10-23-23-23Z" fill="#8A6A52"/>
+      <circle cy="-19" r="8" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(180 140)">
+      <rect width="118" height="30" fill="#FFFFFF" rx="2"/>
+      <text x="12" y="20" font-family="Jost, sans-serif" font-size="13" letter-spacing="1.5" fill="#2E2925">KARITÉ</text>
+    </g>
+  </svg>`;
+  document.querySelectorAll("[data-map-art]").forEach(el => el.innerHTML = arte);
+
+  const mini = document.getElementById("minimap"), dlg = document.getElementById("mapdlg"), panel = document.getElementById("mappanel");
+  const frame = dlg.querySelector(".map-frame");
+  if (frame) frame.addEventListener("load", () => frame.classList.add("loaded"));
+  const EASE = "cubic-bezier(.2,.7,.2,1)";
+
+  function flip(desde, hacia, alTerminar){
+    const dx = desde.left - hacia.left, dy = desde.top - hacia.top, sx = desde.width / hacia.width, sy = desde.height / hacia.height;
+    if (REDUCE || !panel.animate){ alTerminar && alTerminar(); return; }
+    const a = panel.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:"none"}], {duration:550, easing:EASE});
+    a.onfinish = () => alTerminar && alTerminar();
+    return a;
+  }
+  function abrir(){
+    dlg.hidden = false; document.body.classList.add("map-open");
+    if (frame && !frame.src) frame.src = frame.dataset.src;
+    const r0 = mini.getBoundingClientRect(), r1 = panel.getBoundingClientRect();
+    requestAnimationFrame(() => dlg.classList.add("open"));
+    flip(r0, r1);
+    dlg.querySelector(".mapdlg-close").focus({preventScroll:true});
+  }
+  function cerrar(){
+    if (dlg.hidden) return;
+    dlg.classList.remove("open");
+    const r1 = panel.getBoundingClientRect(), r0 = mini.getBoundingClientRect();
+    const fin = () => { dlg.hidden = true; document.body.classList.remove("map-open"); mini.focus({preventScroll:true}); };
+    if (REDUCE || !panel.animate) return fin();
+    const dx = r0.left - r1.left, dy = r0.top - r1.top, sx = r0.width / r1.width, sy = r0.height / r1.height;
+    panel.animate([{transform:"none"},{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`}], {duration:450, easing:EASE}).onfinish = fin;
+  }
+  mini.addEventListener("click", abrir);
+  dlg.addEventListener("click", e => { if (e.target.closest("[data-close]")) cerrar(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") cerrar(); });
+})();
+
 /* Carrusel circular de opiniones: se mueve solo, se arrastra con ratón, dedo o panel táctil y conserva el impulso */
 (function(){
   const car = document.getElementById("carousel"), track = document.getElementById("track");
@@ -763,7 +875,7 @@ render(false);
 /* Aparición al hacer scroll (solo lo que está por debajo de la primera pantalla) */
 if (!REDUCE && "IntersectionObserver" in window){
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
-  const objetivos = [".brands .wrap", ".quiz-card > div:first-child", ".quiz-panel", ".sec-head", ".t-card", ".bono-media", ".bono-text", ".checks li", ".facade", ".final-grid > div:last-child"];
+  const objetivos = [".brands .wrap", ".quiz-card > div:first-child", ".quiz-panel", ".sec-head", ".t-card", ".bono-media", ".bono-text", ".checks li", ".place", ".final-grid > div:last-child"];
   document.querySelectorAll(objetivos.join(",")).forEach(el => {
     if (el.getBoundingClientRect().top < innerHeight) return;
     const hermanos = [...el.parentElement.children].filter(x => x.matches(".t-card, .checks li"));
