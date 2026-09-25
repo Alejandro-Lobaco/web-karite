@@ -32,7 +32,7 @@ La página es corta (unas 7 pantallas en móvil) y cada bloque aplica un princip
 | Tratamientos | **Ley de Hick** | Solo 4 opciones y una sola acción: menos opciones, decisión más rápida. |
 | Opiniones | **Prueba social** | Las reseñas de vecinas del barrio justo antes del cierre reducen el miedo a equivocarse. Hay que poner las reales de Google. |
 | Cierre | **Efecto de posición serial** | Lo que más se recuerda es lo primero y lo último: se abre con el problema y se cierra con la acción (dirección, «abierto ahora» y cita). |
-| Todo | **Efecto Von Restorff** | Un único color para la acción principal (verde): el ojo sabe siempre dónde pulsar. |
+| Todo | **Efecto Von Restorff** | Un único color para la acción principal (marrón topo): el ojo sabe siempre dónde pulsar. |
 | Móvil | **Acción siempre a mano** | Barra fija «Pedir cita por WhatsApp» que aparece al pasar la portada. |
 
 Se han quitado para acortar: la sección de aparatología, la galería de Instagram, las preguntas frecuentes y los textos largos de cada tratamiento.

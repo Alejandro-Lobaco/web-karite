@@ -12,7 +12,7 @@
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=Allura&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,234 +34,253 @@
 }
 </script>
 <style>
+/* Estética de clínica: nude, topo y blanco. Diseño deliberadamente de un solo tema (claro). */
 :root{
-  --ground:#FBF6F4;
-  --surface:#FFFFFF;
-  --blush:#F3E3DF;
-  --blush-deep:#E7CBC4;
-  --ink:#2A2A25;
-  --ink-soft:#5F5D55;
-  --line:#E6DAD5;
-  --green:#4B6A4C;
-  --green-ink:#FFFFFF;
-  --gold:#857A2E;
-  --ok:#3F7F4C;
+  color-scheme:light;
+  --white:#FFFFFF;
+  --nude:#F1E4DA;
+  --cream:#F8F4F0;
+  --taupe:#8A6A52;
+  --taupe-dark:#6E533F;
+  --ink:#2E2925;
+  --muted:#7B726B;
+  --line:#E5DBD3;
+  --dark:#2B2622;
+  --ok:#4E7A55;
   --off:#A4503C;
-  --shadow:0 22px 44px -28px rgba(60,40,35,.45);
-  --display:"Marcellus", "Cormorant Garamond", Georgia, serif;
-  --script:"Allura", "Snell Roundhand", "Segoe Script", cursive;
-  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --font:"Jost", "Century Gothic", "Avenir Next", "Segoe UI", system-ui, sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --ground:#171513; --surface:#211E1B; --blush:#2E2522; --blush-deep:#46342F;
-    --ink:#EFEAE4; --ink-soft:#B5ADA4; --line:#3A332F;
-    --green:#A7C6A2; --green-ink:#14200F;
-    --gold:#D4C47A; --ok:#86D196; --off:#F09A84;
-    --shadow:0 22px 44px -28px rgba(0,0,0,.8);
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#171513; --surface:#211E1B; --blush:#2E2522; --blush-deep:#46342F;
-  --ink:#EFEAE4; --ink-soft:#B5ADA4; --line:#3A332F;
-  --green:#A7C6A2; --green-ink:#14200F;
-  --gold:#D4C47A; --ok:#86D196; --off:#F09A84;
-  --shadow:0 22px 44px -28px rgba(0,0,0,.8);
-}
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--white);color:var(--ink);font:300 16px/1.7 var(--font);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
-h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
-h3{font-size:1.25rem}
+:focus-visible{outline:2px solid var(--taupe);outline-offset:3px}
+h1,h2,h3{font-weight:400;line-height:1.2;text-wrap:balance;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+h3{font-size:1.2rem}
 p{margin:0}
-.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
-.eyebrow{font:600 .74rem/1.3 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.script{font-family:var(--script);font-weight:400;color:var(--gold);font-size:1.45em;line-height:.8}
-.lead{font-size:1.08rem;color:var(--ink-soft);max-width:58ch}
-section{padding-block:clamp(48px,7vw,80px);scroll-margin-top:72px}
-.sec-head{display:grid;gap:10px;margin-bottom:28px;max-width:640px}
+strong{font-weight:500}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:20px}
+.label{font:500 .7rem/1.4 var(--font);letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+.muted{color:var(--muted)}
+.rule{width:44px;height:1px;background:var(--taupe);border:0;margin:16px 0}
+.center{text-align:center}
+.center .rule{margin-inline:auto}
+section{padding-block:clamp(56px,8vw,96px);scroll-margin-top:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:40px}
+.sec-head.center{justify-items:center;max-width:620px;margin-inline:auto}
 
-.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font:600 .98rem/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--green);color:var(--green-ink)}
-.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn-small{padding:9px 14px;font-size:.86rem}
-.btn svg{width:18px;height:18px;flex:none}
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 22px;font:500 .74rem/1 var(--font);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--taupe);cursor:pointer;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn-solid{background:var(--taupe);color:var(--white)}
+.btn-solid:hover{background:var(--taupe-dark);border-color:var(--taupe-dark)}
+.btn-line{background:transparent;color:var(--taupe)}
+.btn-line:hover{background:var(--taupe);color:var(--white)}
+.btn .arr{width:20px;height:20px;border-radius:50%;background:var(--taupe);color:var(--white);display:grid;place-items:center;margin-right:-8px;transition:transform .25s,background .25s,color .25s}
+.btn .arr svg{width:10px;height:10px}
+.btn-line:hover .arr{background:var(--white);color:var(--taupe);transform:translateX(3px)}
 
-.ribbon{background:var(--blush-deep);color:var(--ink);font-size:.85rem}
-.ribbon .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:8px}
+/* aviso demo */
+.ribbon{background:var(--dark);color:#EDE3DA;font-size:.8rem}
+.ribbon .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:7px}
 .ribbon button{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;flex:none}
 
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:16px;padding-block:10px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+/* cabecera */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--white);border-bottom:1px solid var(--line)}
+header.top .bar{display:flex;align-items:stretch}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;padding:12px 20px 12px max(20px, calc((100vw - 1140px)/2 + 20px))}
 .logo img{width:44px;height:44px;border-radius:50%}
-.logo b{font:400 1.9rem/1 var(--script);color:var(--gold)}
-.logo small{display:block;font:600 .56rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
-header.top .btn{margin-left:auto}
+.logo b{display:block;font:400 1.35rem/1 var(--font);letter-spacing:.06em}
+.logo small{display:block;font:500 .56rem/1 var(--font);letter-spacing:.26em;text-transform:uppercase;color:var(--taupe);margin-top:5px}
+.head-right{margin-left:auto;display:flex;flex-direction:column;justify-content:center;gap:6px;padding-right:28px}
+.topline{display:flex;justify-content:flex-end;gap:18px;font-size:.74rem;color:var(--muted)}
+.topline a{text-decoration:none}
+nav.main{display:flex;gap:28px;justify-content:flex-end}
+nav.main a{text-decoration:none;font-size:.85rem;font-weight:400;position:relative}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--taupe);transition:right .25s}
+nav.main a:hover::after{right:0}
+.cita-block{background:var(--taupe);color:var(--white);display:flex;align-items:center;gap:10px;padding:0 max(24px, calc((100vw - 1140px)/2 + 20px)) 0 28px;text-decoration:none;font:500 .74rem/1 var(--font);letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
+.cita-block:hover{background:var(--taupe-dark)}
+.cita-block svg{width:18px;height:18px}
+@media (max-width:900px){.head-right{display:none}.cita-block{margin-left:auto;padding-inline:20px}.logo{padding-left:20px}}
 
-/* hero */
-.hero{padding-block:clamp(32px,5vw,64px) clamp(28px,4vw,48px);background:linear-gradient(180deg,var(--blush) 0%,var(--ground) 100%)}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
-.hero h1{font-size:clamp(2.2rem,4.8vw,3.6rem);margin-block:14px 18px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.micro{margin-top:12px;font-size:.88rem;color:var(--ink-soft)}
-.hero-photo{position:relative;max-width:400px;justify-self:center;width:100%}
-.hero-photo .arch{border-radius:200px 200px 24px 24px;overflow:hidden;aspect-ratio:4/5;max-width:100%;box-shadow:var(--shadow);border:6px solid var(--surface)}
-.hero-photo .arch img{width:100%;height:100%;object-fit:cover}
-.hero-photo .badge{position:absolute;left:-16px;bottom:24px;width:108px;height:108px;border-radius:50%;box-shadow:var(--shadow);border:4px solid var(--surface);background:var(--surface)}
-.hero-photo .badge img{width:100%;height:100%;border-radius:50%}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:32px}.hero-photo{max-width:320px}.hero-photo .badge{left:0}}
+/* portada */
+.hero{background:var(--nude);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:500px;gap:20px}
+.hero-text{padding-block:56px 110px;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.2rem);margin:14px 0 18px}
+.hero .lead{color:var(--muted);max-width:46ch;font-size:1.05rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.micro{margin-top:14px;font-size:.82rem;color:var(--muted)}
+.hero-visual{position:relative;align-self:end;height:100%;min-height:420px;margin-right:min(0px, calc((1140px - 100vw) / 2 - 20px))}
+.hero-visual img{position:absolute;right:0;bottom:0;height:100%;width:auto;max-width:none;object-fit:cover;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 45%);mask-image:linear-gradient(to right,transparent 0,#000 45%)}
+.hero-visual svg.hex{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.hex path{fill:none;stroke:#fff;stroke-width:1.3;opacity:.85}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-text{padding-block:40px 10px}
+  .hero-visual{min-height:360px;margin-inline:-20px}
+  .hero-visual img{left:0;right:0;margin-inline:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 25%);mask-image:linear-gradient(to bottom,transparent 0,#000 25%)}
+}
 
-/* trust strip */
-.trust{border-block:1px solid var(--line);background:var(--surface)}
-.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;padding-block:16px}
-.trust .brands{display:flex;flex-wrap:wrap;gap:6px 22px;font:400 .95rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-.trust .local{font:400 1.5rem/1 var(--script);color:var(--gold)}
-.trust .local span{font:500 .8rem/1 var(--body);color:var(--ink-soft);margin-left:6px}
+/* barra de cita */
+.booking{position:relative;z-index:5;margin-top:-54px}
+.booking-box{background:var(--white);box-shadow:0 24px 50px -30px rgba(60,40,30,.4);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:26px 30px}
+.booking-title{text-align:right;border-right:1px solid var(--line);padding-right:28px}
+.booking-title h2{font-size:1.9rem}
+.booking form{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.booking label{display:grid;gap:4px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.booking input,.booking select{width:100%;border:1px solid var(--line);background:var(--cream);padding:10px 12px;font:400 .88rem/1.2 var(--font);color:var(--ink);border-radius:0;appearance:none;-webkit-appearance:none}
+.booking select{background-image:linear-gradient(45deg,transparent 50%,var(--taupe) 50%),linear-gradient(135deg,var(--taupe) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+.booking input:focus,.booking select:focus{outline:none;border-color:var(--taupe);background:var(--white)}
+.booking .btn{align-self:end;height:40px}
+@media (max-width:900px){.booking{margin-top:0;background:var(--nude);padding-bottom:20px}.booking-box{grid-template-columns:1fr}.booking-title{text-align:left;border:0;padding:0}.booking form{grid-template-columns:1fr 1fr}.booking .btn{grid-column:1/-1}}
+@media (max-width:420px){.booking form{grid-template-columns:1fr}}
 
-/* quiz */
-.quiz-card{background:var(--green);color:var(--green-ink);border-radius:28px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:start}
-.quiz-card .eyebrow{color:var(--green-ink);opacity:.8}
-.quiz-card .lead{color:var(--green-ink);opacity:.9;font-size:1rem}
-.progress{display:flex;gap:6px;margin-bottom:18px}
-.progress i{flex:1;height:5px;border-radius:9px;background:color-mix(in srgb,var(--green-ink) 25%,transparent)}
-.progress i.on{background:var(--green-ink)}
-.step-label{font-size:.82rem;opacity:.8;margin-bottom:6px}
-.q{font:400 1.45rem/1.25 var(--display);margin-bottom:16px}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.opts button{background:transparent;color:var(--green-ink);border:1.5px solid color-mix(in srgb,var(--green-ink) 45%,transparent);border-radius:14px;padding:14px 16px;font:500 .95rem/1.3 var(--body);text-align:left;cursor:pointer;transition:background .15s}
-.opts button:hover{background:color-mix(in srgb,var(--green-ink) 12%,transparent)}
-.back{background:none;border:0;color:var(--green-ink);opacity:.8;font:inherit;font-size:.85rem;text-decoration:underline;cursor:pointer;margin-top:14px;padding:0}
-.result{background:var(--surface);color:var(--ink);border-radius:20px;padding:24px;display:grid;gap:12px}
-.result ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
-.result li{display:flex;gap:10px;font-size:.94rem}
-.result li::before{content:"✓";color:var(--green);font-weight:700}
-.result .why{color:var(--ink-soft);font-size:.95rem}
-.result .note{font-size:.8rem;color:var(--ink-soft)}
-.result .btn{justify-self:start}
-.result .eyebrow{color:var(--gold);opacity:1}
+/* marcas */
+.brands{padding-block:34px;border-bottom:1px solid var(--line)}
+.brands .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 40px}
+.brands span{font:400 .95rem/1 var(--font);letter-spacing:.28em;text-transform:uppercase;color:#A79A90}
+.brands .local{letter-spacing:.14em;color:var(--taupe);font-size:.78rem;font-weight:500}
+
+/* test */
+.quiz-sec{background:var(--cream)}
+.quiz-card{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
 .quiz-card > *{min-width:0}
-.result .btn{white-space:normal;text-align:center;line-height:1.25}
-@media (max-width:860px){.quiz-card{grid-template-columns:1fr}}
+.quiz-panel{background:var(--white);padding:clamp(22px,3.5vw,38px);border:1px solid var(--line)}
+.progress{display:flex;gap:6px;margin-bottom:22px}
+.progress i{flex:1;height:2px;position:relative;overflow:hidden;background:var(--line)}
+.progress i::after{content:"";position:absolute;inset:0;background:var(--taupe);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.progress i.on::after{transform:scaleX(1)}
+.step-label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);font-weight:500;margin-bottom:8px}
+.q{font:400 1.4rem/1.3 var(--font);margin-bottom:20px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{background:var(--white);color:var(--ink);border:1px solid var(--line);padding:15px 16px;font:400 .93rem/1.35 var(--font);text-align:left;cursor:pointer;transition:border-color .2s,background .2s,color .2s,transform .15s}
+.opts button:hover{border-color:var(--taupe)}
+.opts button.picked{background:var(--taupe);border-color:var(--taupe);color:var(--white)}
+.back{background:none;border:0;color:var(--muted);font:inherit;font-size:.82rem;text-decoration:underline;cursor:pointer;margin-top:16px;padding:0}
+.result{display:grid;gap:12px}
+.result h3{font-size:1.45rem}
+.result ul{margin:4px 0;padding:0;list-style:none;display:grid;gap:8px}
+.result li{display:flex;gap:12px;font-size:.95rem}
+.result li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--nude);margin-top:3px;background-image:linear-gradient(45deg,transparent 45%,var(--taupe) 45%,var(--taupe) 55%,transparent 55%);}
+.result .why{color:var(--muted)}
+.result .btn{justify-self:start;white-space:normal;text-align:center;line-height:1.3}
+.result .note{font-size:.78rem;color:var(--muted)}
+@media (max-width:860px){.quiz-card{grid-template-columns:1fr;gap:28px}}
 @media (max-width:420px){.opts{grid-template-columns:1fr}}
 
-/* bono */
-.bono{display:grid;grid-template-columns:.75fr 1.25fr;gap:44px;align-items:center}
-.bono .poster{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);max-width:320px;justify-self:center}
-.bono .poster img{width:100%}
-.season{display:inline-flex;align-items:center;gap:8px;background:var(--blush);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.82rem;font-weight:600}
-.season::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--off)}
-.checks{margin:18px 0;padding:0;list-style:none;display:grid;gap:8px}
-.checks li{display:flex;gap:10px}
-.checks li::before{content:"✓";color:var(--green);font-weight:700}
-.gift{display:flex;gap:12px;align-items:center;border:1.5px dashed var(--gold);border-radius:14px;padding:12px 16px;margin-bottom:22px}
-.gift svg{width:28px;height:28px;color:var(--gold);flex:none}
-@media (max-width:860px){.bono{grid-template-columns:1fr}}
-
-/* treatments */
-.treat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.t-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:8px;align-content:start;text-decoration:none;transition:border-color .15s, transform .15s}
-.t-card:hover{border-color:var(--green);transform:translateY(-2px)}
-.t-card .ph{width:78px;height:78px;border-radius:50%;overflow:hidden;border:3px solid var(--blush-deep);margin-bottom:4px}
-.t-card .ph img{width:100%;height:100%;object-fit:cover}
-.t-card p{font-size:.9rem;color:var(--ink-soft)}
-.t-card .go{font-size:.86rem;font-weight:600;color:var(--green);margin-top:4px}
+/* tratamientos */
+.treat{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.t-card{display:grid;align-content:start}
+.t-card .ph{aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--nude)}
+.t-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.t-card:hover .ph img{transform:scale(1.06)}
+.t-card .label{margin-top:22px}
+.t-card h3{margin-top:6px;font-size:1.25rem}
+.t-card p{font-size:.9rem;color:var(--muted);min-height:3.2em}
+.t-card .btn{justify-self:start;margin-top:18px;padding:10px 16px}
 @media (max-width:900px){.treat{grid-template-columns:1fr 1fr}}
 @media (max-width:440px){.treat{grid-template-columns:1fr}}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0}
-.review .stars{color:var(--gold);letter-spacing:2px}
-.review footer{font-size:.85rem;color:var(--ink-soft);margin-top:8px}
-.sample{font:600 .7rem/1.3 var(--body);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft)}
+/* bono */
+.bono-sec{background:var(--cream);position:relative;overflow:hidden;padding-block:0}
+.bono-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.bono-media{position:relative;padding-block:64px}
+.bono-media::before{content:"";position:absolute;inset:0 45% 0 calc(-50vw + 50%);background:var(--dark)}
+.bono-media img{position:relative;width:min(340px,80%);margin-left:12%;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.bono-text{padding:64px 0 64px 56px;position:relative}
+.bono-text > *{position:relative}
+.bono-text .hexbg{position:absolute;right:-40px;bottom:-20px;width:320px;height:320px;opacity:.5}
+.checks{margin:18px 0;padding:0;list-style:none;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;color:var(--muted)}
+.checks li::before{content:"";flex:none;width:6px;height:6px;background:var(--taupe);transform:rotate(45deg);margin-top:.65em}
+.gift{display:flex;gap:14px;align-items:center;border:1px solid var(--taupe);padding:12px 16px;margin-bottom:26px;background:var(--white)}
+.gift svg{width:26px;height:26px;color:var(--taupe);flex:none}
+.season{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--off);font-weight:500}
+.season::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--off)}
+@media (max-width:860px){.bono-grid{grid-template-columns:1fr}.bono-media{padding-block:40px}.bono-media::before{inset:0 -20px}.bono-media img{margin-inline:auto}.bono-text{padding:40px 0}}
+
+/* opiniones */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review{margin:0;padding:30px 26px;border:1px solid var(--line);background:var(--white);position:relative}
+.review::before{content:"“";position:absolute;top:6px;right:18px;font:400 4rem/1 Georgia,serif;color:var(--nude)}
+.review .stars{color:var(--taupe);letter-spacing:3px;font-size:.85rem}
+.review p{margin-top:10px}
+.review footer{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-top:14px;font-weight:500}
+.sample{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
 @media (max-width:860px){.reviews{grid-template-columns:1fr}}
 
-/* final */
-.final{background:var(--surface);border-top:1px solid var(--line)}
-.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.facade{border-radius:18px;overflow:hidden;position:relative}
+/* visita */
+.final{background:var(--nude)}
+.final-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+.facade{position:relative}
 .facade img{width:100%;aspect-ratio:1156/320;object-fit:cover;max-width:100%}
-.facade span{position:absolute;left:12px;bottom:12px;background:var(--surface);color:var(--ink);font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:999px}
-.info{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin-top:18px;font-size:.95rem}
-.info dt{color:var(--ink-soft)}
-.info dd{margin:0;font-weight:600}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--off);margin-right:6px}
+.facade span{position:absolute;left:14px;bottom:14px;background:var(--white);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:8px 12px}
+.info{display:grid;grid-template-columns:auto 1fr;gap:10px 22px;margin-top:22px;font-size:.95rem}
+.info dt{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);font-weight:500;padding-top:4px}
+.info dd{margin:0}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--off);margin-right:8px}
 .is-open .dot{background:var(--ok)}
-details.hrs summary{cursor:pointer;color:var(--green);font-size:.88rem;font-weight:600;margin-top:4px}
-table.hours{border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:8px;font-size:.9rem;font-weight:400}
-table.hours td{padding:4px 18px 4px 0;color:var(--ink-soft)}
-.pending{font-size:.8rem;color:var(--off);font-weight:400}
-.final .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-@media (max-width:860px){.final-grid{grid-template-columns:1fr}}
+details.hrs summary{cursor:pointer;color:var(--taupe);font-size:.82rem;margin-top:4px}
+table.hours{border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:8px;font-size:.88rem}
+table.hours td{padding:3px 18px 3px 0;color:var(--muted)}
+.pending{font-size:.78rem;color:var(--off)}
+.final .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+@media (max-width:860px){.final-grid{grid-template-columns:1fr;gap:32px}}
 
-footer.site{padding-block:28px 110px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-soft)}
+footer.site{background:var(--dark);color:#CFC3B9;padding-block:30px 110px;font-size:.84rem}
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+footer.site a{color:#EDE3DA}
+
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;transform:translateY(110%);transition:transform .3s}
+.sticky-cta.show{transform:none}
+.sticky-cta .btn{flex:1;padding-block:15px}
+@media (min-width:861px){.sticky-cta{display:none}}
 
 /* ===== animaciones ===== */
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes unveil{from{clip-path:inset(100% 0 0 0 round 200px 200px 24px 24px)}to{clip-path:inset(0 0 0 0 round 200px 200px 24px 24px)}}
-@keyframes zoomout{from{transform:scale(1.15)}to{transform:scale(1)}}
-@keyframes popin{from{opacity:0;transform:scale(.6) rotate(-12deg)}to{opacity:1;transform:none}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes slidein{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
-@keyframes slideout{to{opacity:0;transform:translateX(-28px)}}
-@keyframes chip{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes drift{from{opacity:0;transform:translateX(30px) scale(1.04)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes slidein{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes slideout{to{opacity:0;transform:translateX(-26px)}}
+@keyframes chip{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes check{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(138,106,82,.45)}100%{box-shadow:0 0 0 14px rgba(138,106,82,0)}}
 @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--green) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
 
-.hero .wrap > div:first-child > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-.hero .wrap > div:first-child > :nth-child(2){animation-delay:.08s}
-.hero .wrap > div:first-child > :nth-child(3){animation-delay:.18s}
-.hero .wrap > div:first-child > :nth-child(4){animation-delay:.28s}
-.hero .wrap > div:first-child > :nth-child(5){animation-delay:.36s}
-.hero-photo .arch{animation:unveil 1.1s .15s cubic-bezier(.65,0,.35,1) both}
-.hero-photo .arch img{animation:zoomout 1.6s .15s cubic-bezier(.2,.7,.2,1) both;will-change:transform}
-.hero-photo .badge{animation:popin .7s .9s cubic-bezier(.3,1.5,.5,1) both, float 6s 1.8s ease-in-out infinite}
+.hero-text > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-text > :nth-child(2){animation-delay:.1s}
+.hero-text > :nth-child(3){animation-delay:.2s}
+.hero-text > :nth-child(4){animation-delay:.3s}
+.hero-text > :nth-child(5){animation-delay:.38s}
+.hero-visual img{animation:drift 1.4s .1s cubic-bezier(.2,.7,.2,1) both}
+.hex path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s cubic-bezier(.65,0,.35,1) forwards;animation-delay:calc(.7s + var(--i) * .12s)}
+.booking-box{animation:rise .9s .5s cubic-bezier(.2,.7,.2,1) both}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-.reveal.in .gift svg{animation:wiggle .7s .6s ease-in-out}
-.treat .t-card.reveal, .reviews .review.reveal, .checks li.reveal{transition-delay:calc(var(--i,0) * 110ms)}
-.t-card.reveal.in{transition:opacity .8s ease, transform .3s ease, border-color .15s}
-.t-card.reveal.in:hover{transform:translateY(-3px);transition-delay:0s}
+.t-card.reveal, .review.reveal, .checks li.reveal{transition-delay:calc(var(--i,0) * 120ms)}
+.reveal.in .gift svg{animation:wiggle .7s .7s ease-in-out}
+.bono-media.reveal::before{transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.65,0,.35,1)}
+.bono-media.reveal.in::before{transform:none}
 
-.progress i{position:relative;overflow:hidden;background:color-mix(in srgb,var(--green-ink) 25%,transparent)}
-.progress i::after{content:"";position:absolute;inset:0;background:var(--green-ink);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.progress i.on{background:color-mix(in srgb,var(--green-ink) 25%,transparent)}
-.progress i.on::after{transform:scaleX(1)}
 .stage{animation:slidein .45s cubic-bezier(.2,.7,.2,1) both}
 .stage.out{animation:slideout .2s ease-in both}
-.opts button{animation:chip .4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 60ms + .1s);transition:background .15s, color .15s, transform .15s}
-.opts button:active{transform:scale(.97)}
-.opts button.picked{background:var(--green-ink);color:var(--green);border-color:var(--green-ink);transform:scale(1.03)}
+.opts button{animation:chip .4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 60ms + .1s)}
 .result{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
 .result li{animation:check .4s both;animation-delay:calc(var(--i) * 120ms + .3s)}
 .result .btn{animation:rise .5s .7s backwards, pulse 1.6s 1.3s 2}
-
-.hero-photo .arch img.parallax{animation:none}
 .sticky-cta.show .btn{animation:pulse 1.6s .4s 2}
 
 @media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
-  .hero-photo .arch, .hero-photo .arch img, .hero-photo .badge{animation:none}
+  .hex path{stroke-dashoffset:0}
 }
-
-/* sticky mobile cta */
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;transform:translateY(110%);transition:transform .25s}
-.sticky-cta.show{transform:none}
-.sticky-cta .btn{flex:1}
-@media (min-width:861px){.sticky-cta{display:none}}
 </style>
 </head>
 <body>
@@ -274,10 +293,20 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:spac
 </div>
 
 <header class="top">
-  <div class="wrap">
-    <a class="logo" href="#inicio"><img src="img/logo.png" alt=""><span><b>Karité</b><small>Estética avanzada</small></span></a>
-    <a class="btn btn-primary btn-small js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  <div class="bar">
+    <a class="logo" href="#inicio"><img src="img/logo.png" alt=""><span><b>KARITÉ</b><small>Estética avanzada</small></span></a>
+    <div class="head-right">
+      <div class="topline"><span>Calle del Valle de Zuriza, 25 · Zaragoza</span><a href="https://www.instagram.com/karitezaragoza/" target="_blank" rel="noopener">Instagram</a><span>WhatsApp 614 531 830</span></div>
+      <nav class="main" aria-label="Principal">
+        <a href="#test">Test de piel</a>
+        <a href="#tratamientos">Tratamientos</a>
+        <a href="#bono">Bono Radiante</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#visitanos">Contacto</a>
+      </nav>
+    </div>
+    <a class="cita-block js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
       Pedir cita
     </a>
   </div>
@@ -286,89 +315,138 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:spac
 <main id="inicio">
 
 <!-- 1. Problema → solución -->
-<section class="hero">
+<section class="hero" style="padding:0">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Centro de estética avanzada · Zaragoza</span>
-      <h1>¿Tu piel ha perdido luz <span class="script">este verano</span>?</h1>
-      <p class="lead">Manchas, poro abierto, arrugas más marcadas… Es lo normal después del sol. En Karité analizamos tu piel y te decimos exactamente qué necesita para recuperarla.</p>
+    <div class="hero-text">
+      <span class="label">Estética avanzada · Zaragoza</span>
+      <h1>¿Tu piel ha perdido luz este verano?</h1>
+      <p class="lead">Manchas, poro abierto, arrugas más marcadas… Es lo normal después del sol. Analizamos tu piel y te decimos exactamente qué necesita para recuperarla.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#test">Descubre qué necesita tu piel</a>
-        <a class="btn btn-ghost js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita</a>
+        <a class="btn btn-solid" href="#test">Descubre qué necesita tu piel</a>
+        <a class="btn btn-line" href="#tratamientos">Ver tratamientos <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
       </div>
       <p class="micro">3 preguntas · 30 segundos · sin dejar tus datos</p>
     </div>
-    <div class="hero-photo">
-      <div class="arch"><img src="img/facial-relax.jpg" alt="Clienta relajada durante un tratamiento facial"></div>
-      <div class="badge"><img src="img/logo.png" alt="Logotipo de Karité Estética Avanzada"></div>
+    <div class="hero-visual">
+      <img src="img/piel.jpg" alt="Rostro de mujer con la piel luminosa">
+      <svg class="hex" id="hex" viewBox="0 0 400 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
     </div>
   </div>
 </section>
 
-<!-- 2. Autoridad + pertenencia -->
-<div class="trust">
+<!-- Barra de cita directa -->
+<div class="booking">
   <div class="wrap">
-    <div class="brands" aria-label="Marcas profesionales con las que trabajamos"><span>Skeyndor</span><span>Thuya</span><span>Keenwell</span><span>Kelaya</span><span>Skinderma</span><span>X-Medikal</span></div>
-    <div class="local">Piensa en local<span>Adheridos a Volveremos 2026</span></div>
+    <div class="booking-box">
+      <div class="booking-title"><span class="label">Solicita tu</span><h2>Cita</h2></div>
+      <form id="booking" aria-label="Pedir cita por WhatsApp">
+        <label for="b-nombre">Nombre<input id="b-nombre" type="text" autocomplete="given-name" placeholder="Tu nombre"></label>
+        <label for="b-trat">Tratamiento
+          <select id="b-trat">
+            <option>Tratamiento facial</option>
+            <option>Bono Radiante</option>
+            <option>Tratamiento corporal</option>
+            <option>Presoterapia</option>
+            <option>Manicura o pedicura</option>
+            <option>Depilación</option>
+            <option>Lifting y tinte de pestañas</option>
+            <option>Aún no lo sé, quiero asesoramiento</option>
+          </select>
+        </label>
+        <label for="b-dia">Día preferido<input id="b-dia" type="date"></label>
+        <label for="b-franja">Horario
+          <select id="b-franja"><option>Por la mañana</option><option>Por la tarde</option><option>Me da igual</option></select>
+        </label>
+        <label for="b-personas">Personas
+          <select id="b-personas"><option>Solo yo</option><option>2 personas</option></select>
+        </label>
+        <a class="btn btn-solid" id="b-send" href="#" target="_blank" rel="noopener">Pedir cita</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Autoridad + pertenencia -->
+<div class="brands">
+  <div class="wrap" aria-label="Marcas profesionales con las que trabajamos">
+    <span>Skeyndor</span><span>Thuya</span><span>Keenwell</span><span>Kelaya</span><span>Skinderma</span><span>X-Medikal</span>
+    <span class="local">· Adheridos a Volveremos 2026 ·</span>
   </div>
 </div>
 
 <!-- 3. Micro-compromiso -->
-<section id="test">
+<section class="quiz-sec" id="test">
+  <div class="wrap quiz-card">
+    <div>
+      <span class="label">Test gratuito</span>
+      <hr class="rule">
+      <h2>¿Qué tratamiento necesita tu piel?</h2>
+      <p class="muted" style="margin-top:16px;max-width:42ch">Responde 3 preguntas y te decimos qué tratamiento te conviene. Luego lo confirmamos en cabina con un estudio de tu piel.</p>
+    </div>
+    <div class="quiz-panel" id="quiz" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 4. Tratamientos (pocas opciones, 1 clic) -->
+<section id="tratamientos">
   <div class="wrap">
-    <div class="quiz-card">
-      <div>
-        <span class="eyebrow">Test gratuito</span>
-        <h2 style="margin:10px 0 12px">¿Qué tratamiento necesita tu piel?</h2>
-        <p class="lead">Responde 3 preguntas y te decimos qué tratamiento te conviene. Luego lo confirmamos en cabina con un estudio de tu piel.</p>
-      </div>
-      <div id="quiz" aria-live="polite"></div>
+    <div class="sec-head center"><span class="label">Belleza y bienestar</span><h2>Tratamientos y servicios</h2></div>
+    <div class="treat">
+      <article class="t-card">
+        <div class="ph"><img src="img/x-medikal.jpg" alt="Tratamiento facial con rodillos X-Medikal" loading="lazy"></div>
+        <span class="label">Tu piel</span><h3>Faciales</h3><hr class="rule">
+        <p>Peeling, hidratación profunda, exosomas, infrarrojos y LED.</p>
+        <a class="btn btn-line js-wa" data-msg="¡Hola Karité! Quiero cita para un tratamiento facial." href="#" target="_blank" rel="noopener">Pedir cita <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/corporal.jpg" alt="Aparatología corporal sobre el abdomen" loading="lazy"></div>
+        <span class="label">Tu cuerpo</span><h3>Corporales</h3><hr class="rule">
+        <p>Presoterapia y aparatología reductora y reafirmante.</p>
+        <a class="btn btn-line js-wa" data-msg="¡Hola Karité! Quiero cita para un tratamiento corporal." href="#" target="_blank" rel="noopener">Pedir cita <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/manicura.jpg" alt="Manicura en tonos nude y dorado" loading="lazy"></div>
+        <span class="label">Manos y pies</span><h3>Manicura y depilación</h3><hr class="rule">
+        <p>Manicura, pedicura y depilación.</p>
+        <a class="btn btn-line js-wa" data-msg="¡Hola Karité! Quiero cita para manicura, pedicura o depilación." href="#" target="_blank" rel="noopener">Pedir cita <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
+      </article>
+      <article class="t-card">
+        <div class="ph"><img src="img/thuya-cabina.jpg" alt="Expositor de Thuya para cejas y pestañas en el centro" loading="lazy"></div>
+        <span class="label">Tu mirada</span><h3>Pestañas y cejas</h3><hr class="rule">
+        <p>Lifting y tinte de pestañas, cejas con Thuya.</p>
+        <a class="btn btn-line js-wa" data-msg="¡Hola Karité! Quiero cita para lifting y tinte de pestañas." href="#" target="_blank" rel="noopener">Pedir cita <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- 4. Oferta con regalo y temporada -->
-<section id="bono" style="padding-top:0">
-  <div class="wrap bono">
-    <div class="poster"><img src="img/bono-radiante.jpg" alt="Cartel del Bono Radiante de Karité" loading="lazy"></div>
-    <div>
+<!-- 5. Oferta con regalo y temporada -->
+<section class="bono-sec" id="bono">
+  <div class="wrap bono-grid">
+    <div class="bono-media"><img src="img/bono-radiante.jpg" alt="Cartel del Bono Radiante de Karité" loading="lazy"></div>
+    <div class="bono-text">
+      <svg class="hexbg" viewBox="0 0 320 320" aria-hidden="true"><defs><pattern id="hp" width="52" height="90" patternUnits="userSpaceOnUse"><path d="M26 0 52 15v30L26 60 0 45V15Z M26 60v30" fill="none" stroke="#D9C6B7" stroke-width="1"/></pattern></defs><rect width="320" height="320" fill="url(#hp)"/></svg>
       <span class="season">Solo esta temporada</span>
-      <h2 style="margin:14px 0 10px">Bono Radiante: 4 sesiones para recuperar tu piel</h2>
+      <h2 style="margin-top:12px">Bono Radiante: 4 sesiones para recuperar tu piel</h2>
+      <hr class="rule">
       <ul class="checks">
         <li>Estudio de tu piel y diagnóstico facial</li>
         <li>Higiene, hidratación profunda y efecto antioxidante</li>
         <li>Tratamiento de recuperación cutánea después del verano</li>
       </ul>
       <div class="gift">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="12" width="22" height="15" rx="2"/><path d="M5 17h22M16 12v15M16 12c-3-6-9-5-8-1 1 2 8 1 8 1Zm0 0c3-6 9-5 8-1-1 2-8 1-8 1Z"/></svg>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="12" width="22" height="15"/><path d="M5 17h22M16 12v15M16 12c-3-6-9-5-8-1 1 2 8 1 8 1Zm0 0c3-6 9-5 8-1-1 2-8 1-8 1Z"/></svg>
         <span><strong>Te regalamos</strong> un peeling corporal y un peeling facial.</span>
       </div>
-      <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Quiero reservar el Bono Radiante. ¿Qué huecos tenéis?" href="#" target="_blank" rel="noopener">Reservar mi Bono Radiante</a>
-    </div>
-  </div>
-</section>
-
-<!-- 5. Tratamientos (pocas opciones, 1 clic) -->
-<section id="tratamientos" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Tratamientos</span><h2>¿Buscas otra cosa? Pide cita en un clic</h2></div>
-    <div class="treat">
-      <a class="t-card js-wa" data-msg="¡Hola Karité! Quiero cita para un tratamiento facial." href="#" target="_blank" rel="noopener">
-        <div class="ph"><img src="img/h-faciales.jpg" alt=""></div><h3>Faciales</h3><p>Peeling, hidratación, exosomas, infrarrojos y LED.</p><span class="go">Pedir cita →</span></a>
-      <a class="t-card js-wa" data-msg="¡Hola Karité! Quiero cita para un tratamiento corporal." href="#" target="_blank" rel="noopener">
-        <div class="ph"><img src="img/h-corporales.jpg" alt=""></div><h3>Corporales</h3><p>Presoterapia y aparatología reductora y reafirmante.</p><span class="go">Pedir cita →</span></a>
-      <a class="t-card js-wa" data-msg="¡Hola Karité! Quiero cita para manicura, pedicura o depilación." href="#" target="_blank" rel="noopener">
-        <div class="ph"><img src="img/h-manicura.jpg" alt=""></div><h3>Manos, pies y depilación</h3><p>Manicura, pedicura y depilación.</p><span class="go">Pedir cita →</span></a>
-      <a class="t-card js-wa" data-msg="¡Hola Karité! Quiero cita para lifting y tinte de pestañas." href="#" target="_blank" rel="noopener">
-        <div class="ph"><img src="img/h-lifting.jpg" alt=""></div><h3>Mirada</h3><p>Lifting y tinte de pestañas, cejas con Thuya.</p><span class="go">Pedir cita →</span></a>
+      <a class="btn btn-solid js-wa" data-msg="¡Hola Karité! Quiero reservar el Bono Radiante. ¿Qué huecos tenéis?" href="#" target="_blank" rel="noopener">Reservar mi Bono Radiante</a>
     </div>
   </div>
 </section>
 
 <!-- 6. Prueba social -->
-<section style="padding-top:0">
+<section id="opiniones">
   <div class="wrap">
-    <div class="sec-head"><span class="sample">Opiniones de ejemplo · aquí irán vuestras reseñas reales de Google</span><h2>Lo que dicen las clientas del barrio</h2></div>
+    <div class="sec-head center"><span class="sample">Opiniones de ejemplo · aquí irán vuestras reseñas reales de Google</span><h2>Lo que dicen nuestras clientas</h2></div>
     <div class="reviews">
       <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>Hice el Bono Radiante después del verano y mi piel ha recuperado la luz. Te explican todo lo que te hacen.</p><footer>Clienta del Actur</footer></blockquote>
       <blockquote class="review"><div class="stars" aria-label="5 de 5">★★★★★</div><p>El lifting de pestañas me dura semanas y la manicura, perfecta. Un sitio muy cuidado.</p><footer>Clienta del Arrabal</footer></blockquote>
@@ -382,9 +460,11 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:spac
   <div class="wrap final-grid">
     <div class="facade"><img src="img/fachada.jpg" alt="Fachada del centro Karité con jardín vertical en el escaparate" loading="lazy"><span>Busca el escaparate verde</span></div>
     <div>
+      <span class="label">Te esperamos</span>
+      <hr class="rule">
       <h2>Tu primera cita empieza con un estudio de tu piel</h2>
       <dl class="info">
-        <dt>Dirección</dt><dd>Calle del Valle de Zuriza, 25 · Zaragoza</dd>
+        <dt>Dirección</dt><dd>Calle del Valle de Zuriza, 25 · 50014 Zaragoza</dd>
         <dt>WhatsApp</dt><dd id="phone-text"></dd>
         <dt>Hoy</dt>
         <dd>
@@ -393,8 +473,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:spac
         </dd>
       </dl>
       <div class="ctas">
-        <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
-        <a class="btn btn-ghost js-maps" href="#" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-solid js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
+        <a class="btn btn-line js-maps" href="#" target="_blank" rel="noopener">Cómo llegar <span class="arr"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.5 6.5 5 3 8.5"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -410,7 +490,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:spac
 </footer>
 
 <div class="sticky-cta" id="sticky">
-  <a class="btn btn-primary js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
+  <a class="btn btn-solid js-wa" data-msg="¡Hola Karité! Me gustaría pedir cita." href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
 </div>
 
 <script>
@@ -436,6 +516,35 @@ document.querySelectorAll(".js-wa").forEach(a => a.href = waLink(a.dataset.msg))
 document.querySelectorAll(".js-maps").forEach(a => a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Karité Estética Avanzada, " + CENTRO.direccion));
 document.getElementById("phone-text").textContent = CENTRO.telefonoVisible;
 document.getElementById("year").textContent = new Date().getFullYear();
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Hexágonos sobre la foto de portada */
+(function(){
+  const svg = document.getElementById("hex"), r = 46, h = r * Math.sqrt(3) / 2;
+  const X = 215, Y = 175;
+  const centros = [[X,Y],[X+1.5*r,Y-h],[X+1.5*r,Y+h],[X,Y+2*h],[X-1.5*r,Y+h],[X-1.5*r,Y-h],[X,Y-2*h],[X+1.5*r,Y+3*h]];
+  svg.innerHTML = centros.map(([x,y], i) => {
+    const p = [0,60,120,180,240,300].map(a => { const t = a * Math.PI / 180; return (x + r * Math.cos(t)).toFixed(1) + " " + (y + r * Math.sin(t)).toFixed(1); });
+    return `<path pathLength="1" style="--i:${i}" d="M${p.join(" L")} Z"/>`;
+  }).join("");
+})();
+
+/* Barra de cita → WhatsApp con los datos */
+(function(){
+  const f = document.getElementById("booking"), send = document.getElementById("b-send"), dia = document.getElementById("b-dia");
+  const hoy = new Date(); dia.min = hoy.toISOString().slice(0,10);
+  const actualizar = () => {
+    const n = document.getElementById("b-nombre").value.trim();
+    const d = dia.value ? new Date(dia.value + "T12:00").toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"}) : "";
+    const msg = `¡Hola Karité!${n ? " Soy " + n + "." : ""} Me gustaría pedir cita para: ${document.getElementById("b-trat").value}` +
+      `${d ? ", el " + d : ""}, ${document.getElementById("b-franja").value.toLowerCase()}` +
+      `${document.getElementById("b-personas").value === "2 personas" ? ", para 2 personas" : ""}. ¿Tenéis hueco?`;
+    send.href = waLink(msg);
+  };
+  f.addEventListener("input", actualizar); f.addEventListener("change", actualizar);
+  f.addEventListener("submit", e => e.preventDefault());
+  actualizar();
+})();
 
 /* Horario + abierto ahora (hora de Madrid) */
 const DIAS = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
@@ -474,7 +583,6 @@ const TRAT = {
 };
 const TIPO = {normal:"piel normal o mixta", seca:"piel seca", grasa:"piel grasa", sensible:"piel sensible"};
 const box = document.getElementById("quiz");
-const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let paso = 0, resp = {}, ocupado = false;
 box.innerHTML = `<div class="progress">${PREGUNTAS.map(() => "<i></i>").join("")}</div><div class="stage"></div>`;
 const segs = box.querySelectorAll(".progress i");
@@ -490,11 +598,11 @@ function contenido(){
   const titulo = bono ? "Bono Radiante con " + r.t.charAt(0).toLowerCase() + r.t.slice(1) : r.t;
   const lista = ["Estudio de tu piel incluido", ...r.l, ...(bono ? ["4 sesiones + peelings de regalo"] : [])];
   return `<div class="result">
-      <span class="eyebrow">Tu tratamiento ideal</span>
+      <span class="label">Tu tratamiento ideal</span>
       <h3>${titulo}</h3>
       <p class="why">${r.w}${resp.t === "sensible" ? " Adaptamos la intensidad a tu piel sensible." : ""}</p>
       <ul>${lista.map((x, i) => `<li style="--i:${i}">${x}</li>`).join("")}</ul>
-      <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink(`¡Hola Karité! He hecho el test de la web (${TIPO[resp.t]}) y me sale: ${titulo}. ¿Qué huecos tenéis?`)}">Reservar este tratamiento</a>
+      <a class="btn btn-solid" target="_blank" rel="noopener" href="${waLink(`¡Hola Karité! He hecho el test de la web (${TIPO[resp.t]}) y me sale: ${titulo}. ¿Qué huecos tenéis?`)}">Reservar este tratamiento</a>
       <p class="note">Orientación general. Lo confirmamos contigo tras el estudio de tu piel.</p>
     </div><button type="button" class="back" data-restart>Repetir el test</button>`;
 }
@@ -528,7 +636,7 @@ render(false);
 /* Aparición al hacer scroll (solo lo que está por debajo de la primera pantalla) */
 if (!REDUCE && "IntersectionObserver" in window){
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
-  const objetivos = [".trust .wrap", "#test .quiz-card", ".bono .poster", ".bono > div:last-child", ".checks li", ".sec-head", ".t-card", ".review", ".facade", ".final-grid > div:last-child"];
+  const objetivos = [".brands .wrap", ".quiz-card > div:first-child", ".quiz-panel", ".sec-head", ".t-card", ".bono-media", ".bono-text", ".checks li", ".review", ".facade", ".final-grid > div:last-child"];
   document.querySelectorAll(objetivos.join(",")).forEach(el => {
     if (el.getBoundingClientRect().top < innerHeight) return;
     const hermanos = [...el.parentElement.children].filter(x => x.matches(".t-card, .review, .checks li"));
@@ -536,24 +644,11 @@ if (!REDUCE && "IntersectionObserver" in window){
     el.classList.add("reveal");
     io.observe(el);
   });
-
-  /* Paralaje suave de la foto de portada */
-  const foto = document.querySelector(".hero-photo .arch img");
-  let tick = false;
-  setTimeout(() => {
-    foto.classList.add("parallax");
-    addEventListener("scroll", () => {
-      if (tick) return; tick = true;
-      requestAnimationFrame(() => { const y = Math.min(scrollY, 700); foto.style.transform = `translateY(${y * 0.08}px) scale(1.06)`; tick = false; });
-    }, {passive:true});
-    foto.style.transform = "scale(1.06)";
-    foto.style.transition = "transform .2s linear";
-  }, 1800);
 }
 
 /* Botón fijo en móvil tras pasar la portada */
-const sticky = document.getElementById("sticky"), hero = document.querySelector(".hero");
-new IntersectionObserver(([e]) => sticky.classList.toggle("show", !e.isIntersecting)).observe(hero);
+const sticky = document.getElementById("sticky");
+new IntersectionObserver(([e]) => sticky.classList.toggle("show", !e.isIntersecting)).observe(document.querySelector(".booking"));
 
 const ribbon = document.getElementById("ribbon");
 try { if (localStorage.getItem("karite-ribbon") === "0") ribbon.hidden = true; } catch(e){}
