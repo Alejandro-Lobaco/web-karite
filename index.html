@@ -189,7 +189,11 @@ nav.main a:hover::after{right:0}
 .bono-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center}
 .bono-media{position:relative;padding-block:64px}
 .bono-media::before{content:"";position:absolute;inset:0 45% 0 calc(-50vw + 50%);background:var(--dark)}
-.bono-media img{position:relative;width:min(340px,80%);margin-left:12%;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.bono-panel{position:relative;width:min(340px,80%);margin-left:12%;background:var(--white);padding:40px 34px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);text-align:center;border-top:3px solid var(--taupe)}
+.bono-panel .big{display:block;font:300 5rem/1 var(--font);color:var(--taupe)}
+.bono-panel .unit{display:block;font:500 .72rem/1.4 var(--font);letter-spacing:.24em;text-transform:uppercase;margin-top:6px}
+.bono-panel .plus{display:block;margin:22px auto;width:36px;height:1px;background:var(--line)}
+.bono-panel .extra{font-size:.95rem;color:var(--muted)}
 .bono-text{padding:64px 0 64px 56px;position:relative}
 .bono-text > *{position:relative}
 .bono-text .hexbg{position:absolute;right:-40px;bottom:-20px;width:320px;height:320px;opacity:.5}
@@ -200,7 +204,7 @@ nav.main a:hover::after{right:0}
 .gift svg{width:26px;height:26px;color:var(--taupe);flex:none}
 .season{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--off);font-weight:500}
 .season::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--off)}
-@media (max-width:860px){.bono-grid{grid-template-columns:1fr}.bono-media{padding-block:40px}.bono-media::before{inset:0 -20px}.bono-media img{margin-inline:auto}.bono-text{padding:40px 0}}
+@media (max-width:860px){.bono-grid{grid-template-columns:1fr}.bono-media{padding-block:40px}.bono-media::before{inset:0 -20px}.bono-panel{margin-inline:auto}.bono-text{padding:40px 0}}
 
 /* opiniones */
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -423,7 +427,7 @@ footer.site a{color:#EDE3DA}
 <!-- 5. Oferta con regalo y temporada -->
 <section class="bono-sec" id="bono">
   <div class="wrap bono-grid">
-    <div class="bono-media"><img src="img/bono-radiante.jpg" alt="Cartel del Bono Radiante de Karité" loading="lazy"></div>
+    <div class="bono-media"><div class="bono-panel"><span class="big">4</span><span class="unit">sesiones faciales</span><span class="plus"></span><p class="extra">Estudio de tu piel incluido<br>+ peeling corporal y facial de regalo</p></div></div>
     <div class="bono-text">
       <svg class="hexbg" viewBox="0 0 320 320" aria-hidden="true"><defs><pattern id="hp" width="52" height="90" patternUnits="userSpaceOnUse"><path d="M26 0 52 15v30L26 60 0 45V15Z M26 60v30" fill="none" stroke="#D9C6B7" stroke-width="1"/></pattern></defs><rect width="320" height="320" fill="url(#hp)"/></svg>
       <span class="season">Solo esta temporada</span>
